@@ -1,0 +1,364 @@
+Service_Name|messageName|messageDescription|direction
+AcknowledgeWeatherReport(WMSCR)|wmscr:AcknowledgeReportMessage|Used by clients to submit altimeter setting reports that are stored in the database for later dissemination. |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|CreatePullPointRequest|Allows user to request a PullPoint resource |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|CreatePullPointResponse|Responds to users request to create a PullPoint resource |Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|DestroyPullPointRequest|Allows user to terminate a PullPoint resource|In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|DestroyPullPointResponse|Responds to users request to terminate a PullPoint resource |Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|GetPullPointMessagesRequest|Allows user to get a PullPoint message |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|GetPullPointMessagesResponse|Responds to users request to get a PullPoint message.|Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|GetResourcePropertyRequest|Limited to a max of 24 hours worth of messages. |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|GetResourcePropertyResponse|Allows user to request NotificationProducer resource properties |Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|RenewRequest|Responds to users request with NotifcationProducer resource property settings |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|RenewResponse|Allows user to request for an update to their subscription |Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|SubscribeRequest|Responds to the users request to update an existing Repository subscription|In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|SubscribeResponse|Allows user to request for a new subscription to AI |Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|UnsubscribeRequest|Responds to the users request for a new subscription |In
+AeronauticalCommonServicesDataSubscription(ACS-DS)Deprecated|UnsubscribeResponse|Allows user to request to delete an existing subscription |Out
+AeronauticalCommonServicesAirspaceConflictDetection(ACS-ACD)|UnsubscribeResponse|Allows user to request to delete an existing subscription |Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|CreateBusinessProcessRequest|Allows user to request to create Business Processes|In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|CreateBusinessProcessResponse|Responds to users to create Business Processes|Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|DeleteBusinessProcessRequest|Allows user to request to delete Business Processes |In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|DeleteBusinessProcessResponse|Responds to users to delete Business Processes|Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|EditBusinessProcessRequest|Allows user to request to edit Business Processes|In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|EditBusinessProcessResponse|Responds to users to edit Business Processes|Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|ListBusinessProcessesRequest|Allows user to list Business Processes.|In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|ListBusinessProcessesResponse |Responds to users request to create Business Process.|Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|StartODSConflictReviewBusinessP rocessResponse|Responds to users request to start ODS conflict review for a Business Process workflow|Out
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|StartODSConflictReviewBusinessProcessRequest|Allows user to request to start ODS conflict review for a Business Process workflow.|In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|StopBusinessProcessRequest|Allows user to request to stop Business Processes |In
+AeronauticalCommonServicesBusinessProcess(ACS-BP)|StopBusinessProcessResponse|Responds to users to stop Business Processes|Out
+AeronauticalCommonServicesBusinessRule(ACS-BR)|DeployBusinessRuleRequest|Allows user to request to deploy Business Rules |In
+AeronauticalCommonServicesBusinessRule(ACS-BR)|DeployBusinessRuleResponse|Responds to users request to deploy Business Rules |Out
+AeronauticalCommonServicesBusinessRule(ACS-BR)|EditBusinessRuleRequest|Allows user to read Business Rules|In
+AeronauticalCommonServicesBusinessRule(ACS-BR)|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesDataQuery(ACS-DQ)V2.0|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesDataSubscription(ACS-DS)(v2.0)|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesDataVerification(ACS-DV)|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesGeodeticComputation(ACS-GC)|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesNotificationConsumer|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesPostOpMetrics(ACS-POM)|EditBusinessRuleResponse|Responds to users request to read Business Rules|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|CreateStoredQueryRequest|Allows user to request for the system to store the query|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|CreateStoredQueryResponse|Responds to the users request to store the query|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DescribeFeatureTypeRequest|Allows user to request to get the feature type|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DescribeFeatureTypeResponse|Responds to the request to get the feature type|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DescribeStoredQueriesRequest|Allows user to request a description of the stored queries|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DescribeStoredQueriesResponse|Responds to the users request to get the description of the stored queries |Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DropStoredQueryRequest|Allows user to request to drop a stored query|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|DropStoredQueryResponse|Responds to the users request to drop the query|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetCapabilitiesRequest|Allows user to retrieve capabilities|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetCapabilitiesResponse|Responds to the request to get capabilities|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetFeatureRequest|Allows user to retrieve features|In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetFeatureResponse|Responds to the request to get features |Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetPropertyValueRequest|Allows user to request to get the property value |In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|GetPropertyValueResponse|Responds to the request to get the property value |Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|ListStoredQueriesRequest|Allows user to request to get the stored queries |In
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)Deprecated|ListStoredQueriesResponse|Responds to the users request to get the stored queries|Out
+AeronauticalCommonServicesWebFeatureService(ACS-WFS)v2.0|ListStoredQueriesResponse|Responds to the users request to get the stored queries|Out
+AeronauticalCommonServicesWMS(ACS-WMS)|ListStoredQueriesResponse|Responds to the users request to get the stored queries|Out
+AeronauticalCommonServicesWMTS(ACS-WMTS)|ListStoredQueriesResponse|Responds to the users request to get the stored queries|Out
+AeronauticalFeatureData|ListStoredQueriesResponse|Responds to the users request to get the stored queries|Out
+AeronauticalInformationAuthoriativeSourceNotificationService(AIASNotificationService)|OASChangeNotification|Contains an instance / fragement of Obstacle as a payload along with message headers. The payload Obstacle is an AIXM Message. |Out
+AeronauticalInformationAuthoritativeSourceDataServiceWFS(AIASDataServiceWFS)|OASChangeNotification|Contains an instance / fragement of Obstacle as a payload along with message headers. The payload Obstacle is an AIXM Message. |Out
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|GetCoverageResponse|Group of coverages that can be used as the response from the WCS GetCoverage operation, allowing each coverage to include or reference multiple files. This Coverages element may also be used for outputs from, or inputs to, other OWS operations.|Out
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|DescribeCoverageRequest|Request to a WCS to perform the DescribeCoverage operation. In this XML encoding, no "request" parameter is included, since the element name specifies the specific operation.|In
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|DescribeCoverageResponse|Response from a WCS DescribeCoverage operation, containing one or more coverage descriptions.|Out
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|GetCapabilitiesRequest|Request to a WCS server to perform the GetCapabilities operation. This operation allows a client to retrieve a Capabilities XML document providing metadata for the specific WCS server. In this XML encoding, no "request" parameter is included, since the element name specifies the specific operation.|In
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|GetCapabilitiesResp[onse|XML encoded WCS GetCapabilities operation response. The Capabilities document provides clients with service metadata about a specific service instance, including metadata about the coverages served. If the server does not implement the updateSequence parameter, the server shall always return the Capabilities document, without the updateSequence parameter. When the server implements the updateSequence parameter and the GetCapabilities operation request included the updateSequence parameter with the current value, the server shall return this element with only the "version" and "updateSequence" attributes. Otherwise, all optional sections shall be included or not depending on the actual value of the Contents parameter in the GetCapabilities operation request.|Out
+CDDSWCSGriddedWeatherProducts(CIWSWCS)|GetCoverageRequest|Request to a WCS to perform the GetCoverage operation. This operation allows a client to retrieve a subset of one coverage. In this XML encoding, no "request" parameter is included, since the element name specifies the specific operation.|In
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|TransactionRequest|Request to a WFS server to perform the Transaction operation. This operation requests allowed transaction types.|In
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|TransactionResponse|Response to a TransactionRequest. This operation provides the requested transaction type.|Out
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|DescribeFeatureTypeRequest|Request to a WFS server to perform the DescribeFeatureType operation. This operation requests a description for a particular feature.|In
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|DescribeFeatureTypeResponse|Response to a DescribeFeatureTypeRequest. This operation provides a description of the requested feature.|Out
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|GetCapabilitiesRequest|Request to a WFS server to perform the GetCapabilities operation. This operation allows a client to retrieve a Capabilities XML document providing metadata for the specific WFS server.|In
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|GetCapabilitiesResponse|Response to a GetCapabilitiesRequest. This operation provides a list of feature types and filtering capabilities.|Out
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|GetFeatureRequest|Request to a WFS server to perform the GetFeature operation. This operation requests a particular feature.|In
+CDDSWFSNonGriddedWeatherProducts(CIWSWFS)|GetFeatureResponse|Response to a GetFeatureRequest. This operation provides the requested feature.|Out
+CredentialingandRatingService|Credentialing and Rating|Reports current status of ATSSs Credentials and Rating|Out
+CSS-WxWebCoverageService(WCS)|DescribeCoverageGetRequest| |In
+CSS-WxWebCoverageService(WCS)|DescribeCoveragePostRequest|An instance of HTTP Request that passes a DescribeCoverage operation request with all mandatory and 0..n optional parameters.|In
+CSS-WxWebCoverageService(WCS)|DescribeCoverageResponse| |Out
+CSS-WxWebCoverageService(WCS)|GetCapabilitiesGetRequest|An instance of HTTP Request that passes a GetCapabilities operation request with all mandatory and 0..n optional parameters.|In
+CSS-WxWebCoverageService(WCS)|GetCapabilitiesPostRequest|An instance of HTTP Request that passes a GetMetadata request with all mandatory and 0..n optional parameters.|In
+CSS-WxWebCoverageService(WCS)|GetCapabilitiesResponse|An instance of HTTP Request that passes a GetMetadata request with all mandatory and 0..n optional parameters.|Out
+CSS-WxWebCoverageService(WCS)|GetCoverageRequest|An instance of HTTP Response containing an XML representation of a |In
+CSS-WxWebCoverageService(WCS)|GetCoverageResponse| metadata.|Out
+CSS-WxWebCoverageService(WCS)|GetMetadataGetRequest|An instance of HTTP Request that passes a Renew operation request with all mandatory and 0..n optional parameters.|In
+CSS-WxWebCoverageService(WCS)|GetMetadataPostRequest|An instance of HTTP Request that passes a Subscribe operation request with all mandatory and 0..n optional parameters.|In
+CSS-WxWebCoverageService(WCS)|GetMetadataResponse|An instance of HTTP Request that passes a Subscribe operation request with all mandatory and 0..n optional parameters.|Out
+CSS-WxWebCoverageService(WCS)|RenewGetRequest| |In
+CSS-WxWebMappingTileService(WMTS)|FeatureInfoResource Request|Resource oriented architectural style provides standard endpoints from which a representation of each FeatureInfo resource can be obtained.  A client requests the representation of any offered FeatureInfo resource by performing a request to the address following the standard semantics of the transport protocol used for communication between the client and the server.  The CSS-Wx WMTS-I service provides a representation of the FeatureInfo resource in response to a request.|Out
+CSS-WxWebMappingTileService(WMTS)|ServiceMetadata Resource Request|This section describes the ServiceMetadata document and the way in which it may be obtained using a resource oriented architectural style.|Out
+CSS-WxWebMappingTileService(WMTS)|Tile Resource Request|The CSS-Wx WMTS-I servers using a resource oriented architectural style provide standard endpoints from which a representation of the ServiceMetadata resource can be obtained. The endpoints are specified in the ServiceMetadata document.|Out
+CSS-WxWebMappingTileService(WMTS)|GetCapabilities Request|The client will request the representation of the ServiceMetadata resource by performing a standard request to the endpoint.  In response to a correct request, the server provides a representation of its ServiceMetadata document.  Incorrect requests shall be handled according to the standard semantics for errors for the transport protocol used for communication between the client and the server.|In
+CSS-WxWebMappingTileService(WMTS)|GetFeatureInfo|Resource oriented architectural style provides standard endpoints from which a representation of each Tile resource can be obtained.  A client requests the representation of any offered Tile resource by performing a request to the address following the standard semantics of the transport protocol used for communication between the client and the server.  The CSS-Wx WMTS service provides a representation of the Tile resource in response to a request|In
+CSS-WxWebMappingTileService(WMTS)|GetTile|The GetCapabilities operation request is as specified in Subclauses 7.2 and 7.3 of OWS Common [OGC 06-121r3] and follows the Tables 3 and 7 of OWS Common [OGC 06-121r3]. Parameters of the GetCapabilities request are described in Table 3 of OWS Common [OGC 06-121r3] with the restriction in the value of the ―service “parameter that is ―WMTS” as shown in Figure 5‑7, Figure 5‑8, and Figure 5‑9.|In
+DataLinkDispatch(DLD)Service|AFN ACKNOWLEDGEMENT (FN_AK)|Uplink response sent by the ATSU receiving the AFN logon message to the aircraft providing the status of the AFN logon attempt.|Out
+DataLinkDispatch(DLD)Service|AFN COMPLETE (FN_COMP)|Response sent by the aircraft to the ATSU initiating the FN_CAD providing the status of the AFN logon to the specified ATSU. |Out
+DataLinkDispatch(DLD)Service|AFN CONTACT (FN_CON)|AFN logon message sent by the aircraft to the specified ATSU. |Out
+DataLinkDispatch(DLD)Service|AFN CONTACT ADVISORY (FN_CAD)|Uplink message sent by an ATSU instructing an aircraft to send an FN_CON (AFN logon) to a specified ATSU. |Out
+DataLinkDispatch(DLD)Service|AFN RESPONSE (FN_RESP)|Downlink response sent by the aircraft to the ATSU that initiated the FN_CAD indicating an intent to send an FN_CON to the specified ATSU.|Out
+DataLinkDispatch(DLD)Service|CPDLC CONNECTION CONFIRM (CC1)|Downlink message to confirm a CPDLC request.|Out
+DataLinkDispatch(DLD)Service|CPDLC CONNECTION REQUEST (CR1)|Uplink message to request a CPDLC connection.|Out
+DataLinkDispatch(DLD)Service|CPDLC DISCONNECT REQUEST (DR1)|Downlink message to request a CPDLC disconnect.|Out
+DataLinkDispatch(DLD)Service|CPDLC Downlink Message (CPDLC_DL)|Downlink FANS message|Out
+DataLinkDispatch(DLD)Service|CPDLC Uplink Message (CPDLC_UL)|Uplink FANS message|Out
+DataLinkDispatch(DLD)Service|Message Assurance (MAS)|Provided only in a response to a CPDLC uplink message referring to the message ID in the A620 header.|Out
+DCNSStatusMessage|Active Links|Sent by the DCNS SOMS report the number of active links for each ground station.|Out
+DCNSStatusMessage|Ground Station Status|Message Sample:|Out
+DCNSStatusMessage|RMA Failure|<?xml version="1.0" encoding="UTF-8"?>|Out
+DCNSStatusMessage|SDS Status|<DCNSMessage>|Out
+DCNSStatusMessage|Service Volume Status|  <ID>|Out
+DCNSStatusMessage|SOMS Status|</ID>|Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Adapted Route Status Reconstitution (DBRTRI/DBRTRI_AIXM)|The Adapted Route Status Reconstitution message is sent when a client first connects to a HADDS or when a client reconnects to a HADDS due to a disruption in communication.|Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Altimeter Setting (HA)|The payload described here is for DBRTRI. For DBRTRI_AIXM, please see the AIXM schema.|Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Altimeter Status Reconstitution (DBRTAI/DBRTAI_AIXM)|An Altimeter-Setting message is used to communicate altimeter reference data for a particular station, generally an airport. The altimeter reference data includes the data reporting time (35a), the reporting station (13.3), and the altimeter setting (34a).|Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Route Status (HR/HR_AIXM)||
+	ERAM generates an HA when an altimeter setting is processed. ERAM receives most altimeter settings from the Weather Message Switching Center Replacement (WMSCR), but occasionally a value might be entered by a controller. Either source causes ERAM to generate an HA message; there is no way to distinguish the source.||Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Sector Assignment Reconstitution (DBRTSI/DBRTSI_AIXM)||
+	ERAM at an ARTCC may receive altimeter data for many stations, both internal and external to that ARTCC. As a result, SFDPS may receive multiple copies of altimeter setting data for a particular station. For example, SFDPS could receive HA messages from ZBW, ZNY, ZDC, ZOB, ZTL, and ZLA for the airport DCA. In almost all cases, these messages are copies of the same data; that is, they have the same data reporting time and altimeter setting.||Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Sector Assignment Status (SH/SH_AIXM)|The Altimeter Status Reconstitution message is sent when a client first connects to a HADDS or when a client reconnects to a HADDS due to a disruption in communication.|Out
+EnRouteAirspaceDataPublication(SFDPS)(Deprecated)|Special Activities Airspace (SU/SU_AIXM)|The payload described here is for DBRTAI. For DBRTAI_AIXM, please see the AIXM schema.|Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Adapted Route Status Reconstitution (DBRTRI/DBRTRI_AIXM)|The Adapted Route Status Reconstitution message is sent when a client first connects to a HADDS or when a client reconnects to a HADDS due to a disruption in communication.|Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Altimeter Setting (HA)|The payload described here is for DBRTRI. For DBRTRI_AIXM, please see the AIXM schema.|Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Altimeter Status Reconstitution (DBRTAI/DBRTAI_AIXM)|An Altimeter-Setting message is used to communicate altimeter reference data for a particular station, generally an airport. The altimeter reference data includes the data reporting time (35a), the reporting station (13.3), and the altimeter setting (34a).|Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Route Status (HR/HR_AIXM)||
+	ERAM generates an HA when an altimeter setting is processed. ERAM receives most altimeter settings from the Weather Message Switching Center Replacement (WMSCR), but occasionally a value might be entered by a controller. Either source causes ERAM to generate an HA message; there is no way to distinguish the source.||Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Sector Assignment Reconstitution (DBRTSI/DBRTSI_AIXM)||
+	ERAM at an ARTCC may receive altimeter data for many stations, both internal and external to that ARTCC. As a result, SFDPS may receive multiple copies of altimeter setting data for a particular station. For example, SFDPS could receive HA messages from ZBW, ZNY, ZDC, ZOB, ZTL, and ZLA for the airport DCA. In almost all cases, these messages are copies of the same data; that is, they have the same data reporting time and altimeter setting||Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Sector Assignment Status (SH/SH_AIXM)|The Altimeter Status Reconstitution message is sent when a client first connects to a HADDS or when a client reconnects to a HADDS due to a disruption in communication.|Out
+EnRouteAirspaceDataPublication-v2.0(SFDPS)|Special Activities Airspace (SU/SU_AIXM)|The payload described here is for DBRTAI. For DBRTAI_AIXM, please see the AIXM schema.|Out
+EnRouteAirspaceDataQuery(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteAirspaceDataQuery(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EnRouteAirspaceDataQuery-v2.0(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteAirspaceDataQuery-v2.0(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EnRouteFlightDataPublication(SFDPS)|Aircraft Identification Amendment Information (IH/IH_FIXM)|The Aircraft Identifier Amendment Message is sent to indicate a change to the flight identification field (flightId_02a) or assignment of computer identification (computerId_02d) for a flight.|Out
+EnRouteFlightDataPublication(SFDPS)|ARTS Flow Control Track/Full Data Block Information (HZ/HZ_FIXM)|Refer to the NAS-JMSDD-4309-001 and SFDPSSchema_v1.2 for IH payload information.|Out
+EnRouteFlightDataPublication(SFDPS)|Beacon Code Reassignment (BA/BA_FIXM)|Refer to FIXM 3.0 documentation at |Out
+EnRouteFlightDataPublication(SFDPS)|Beacon Code Restricted (RE/RE_FIXM)| and to FIXM 3.0 and NAS Extension schemas at |Out
+EnRouteFlightDataPublication(SFDPS)|Cancellation Information (CL/CL_FIXM)| and |Out
+EnRouteFlightDataPublication(SFDPS)|Converted Route Information (HX/HX_FIXM)| for IH_FIXM payload information. |Out
+EnRouteFlightDataPublication(SFDPS)|Departure Information (DH/DH_FIXM)|The ARTS TZ Flow Control Track/Full Data Block (FDB) Message provides a position update from an ARTS; this is a data pass-through.|Out
+EnRouteFlightDataPublication(SFDPS)|Drop Track Information (RH/RH_FIXM)|Refer to the NAS-JMSDD-4309-001 and SFDPSSchema_v1.2 for HZ payload information.|Out
+EnRouteFlightDataPublication(SFDPS)|Expected Departure Time Information (ET/ET_FIXM)|Refer to FIXM 3.0 documentation at |Out
+EnRouteFlightDataPublication(SFDPS)|FDB Fourth Line Information (HF/HF_FIXM)| and to FIXM 3.0 and NAS Extension schemas at |Out
+EnRouteFlightDataPublication(SFDPS)|Flight Amendment Information (AH/AH_FIXM)| and |Out
+EnRouteFlightDataPublication(SFDPS)|Flight Arrival Information (HV/HV_FIXM)| for HZ_FIXM payload information. |Out
+EnRouteFlightDataPublication(SFDPS)|Flight Plan Information (FH/FH_FIXM)|The Beacon Code Reassignment Message provides an updated beacon code for a flight plan when ERAM determines that an automatic beacon code reassignment occurred because the requested beacon code was already in use by another aircraft.|Out
+EnRouteFlightDataPublication(SFDPS)|Flight Plan Reconstitutio (DBRTFPI/DBRTFPI_FIXM)|Refer to the NAS-JMSDD-4309-001 and SFDPSSchema_v1.2 for BA payload information.|Out
+EnRouteFlightDataPublication(SFDPS)|Flight Plan Update Information (HU/HU_FIXM)|Refer to FIXM 3.0 documentation at |Out
+EnRouteFlightDataPublication(SFDPS)|Handoff Status (OH/OH_FIXM)| and to FIXM 3.0 and NAS Extension schemas at |Out
+EnRouteFlightDataPublication(SFDPS)|Hold Information (HH/HH_FIXM)| and |Out
+EnRouteFlightDataPublication(SFDPS)|Inbound Point Out Information (PT/PT_FIXM)| for BA_FIXM payload information. |Out
+EnRouteFlightDataPublication(SFDPS)|Interim Altitude Information (LH/LH_FIXM)|The Beacon Code Restricted Message provides an updated beacon code for a flight when ERAM determines that a beacon code reassignment occurred because the requested beacon code is adapted as restricted.|Out
+EnRouteFlightDataPublication(SFDPS)|Point Out Information (HT/HT_FIXM)|Refer to the NAS-JMSDD-4309-001 and SFDPSSchema_v1.2 for RE payload information.|Out
+EnRouteFlightDataPublication(SFDPS)|Position Update Information (HP/HP_FIXM)|Refer to FIXM 3.0 documentation at |Out
+EnRouteFlightDataPublication(SFDPS)|Progress Report Information (PH/PH_FIXM)| and to FIXM 3.0 and NAS Extension schemas at |Out
+EnRouteFlightDataPublication(SFDPS)|Tentative Aircraft Identification Amendment Information (NI/NI_FIXM)| and |Out
+EnRouteFlightDataPublication(SFDPS)|Tentative Flight Plan Amendment Information (NU/NU_FIXM)| for RE_FIXM payload information. |Out
+EnRouteFlightDataPublication(SFDPS)|Tentative Flight Plan Information (NP/NP_FIXM)|The Cancellation Message is sent when a flight plan record is canceled within a particular ARTCC’s ERAM. This means that no more data is sent from that center for that flight plan.|Out
+EnRouteFlightDataPublication(SFDPS)|Tentative Flight Plan Removal (NL/NL_FIXM)|Refer to the NAS-JMSDD-4309-001 and SFDPSSchema_v1.2 for CL payload information.|Out
+EnRouteFlightDataPublication(SFDPS)|Track Information (TH/TH_FIXM)|Refer to FIXM 3.0 documentation at |Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Aircraft Identification Amendment Information (IH/IH_FIXM)|The payload information shown here is for the IH message. Please refer to the FIXM schema for the  IH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|ARTS Flow Control Track/Full Data Block Information (HZ/HZ_FIXM)|The payload information shown here is for the HZ message. Please refer to the FIXM schema for the  HZ_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Batch Track Information (BATCH_TH/BATCH_TH_FIXM)|The Batch Track Message includes multiple individual Track Messages. The single Track message provides track data/target information, such as aircraft track/target position, altitude, and speed. It is normally sent every 12 seconds for an active flight.The Batch Track Message includes multiple individual Track Messages. The single Track message provides track data/target information, such as aircraft track/target position, altitude, and speed. It is normally sent every 12 seconds for an active flight.The Batch Track Message includes multiple individual Track Messages. The single Track message provides track data/target information, such as aircraft track/target position, altitude, and speed. It is normally sent every 12 seconds for an active flight.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Beacon Code Reassignment (BA/BA_FIXM)|The payload information shown here is for the BATCH_TH message. Please refer to the FIXM schema for the BATCH_TH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Beacon Code Restricted (RE/RE_FIXM)|The payload information shown here is for the BA message. Please refer to the FIXM schema for the  BA_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Cancellation Information (CL/CL_FIXM)|The payload information shown here is for the RE message. Please refer to the FIXM schema for the  RE_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Converted Route Information (HX/HX_FIXM)|The payload information shown here is for the CL message. Please refer to the FIXM schema for the  CL_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Departure Information (DH/DH_FIXM)|The payload information shown here is for the HX message. Please refer to the FIXM schema for the  HX_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Drop Track Information (RH/RH_FIXM)|The payload information shown here is for the DH message. Please refer to the FIXM schema for the  DH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Expected Departure Time Information (ET/ET_FIXM)|The payload information shown here is for the RH message. Please refer to the FIXM schema for the  RH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|FDB Fourth Line Information (HF/HF_FIXM)|The payload information shown here is for the ET message. Please refer to the FIXM schema for the  ET_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Flight Amendment Information (AH/AH_FIXM)|The payload information shown here is for the HF message. Please refer to the FIXM schema for the  HF_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Flight Arrival Information (HV/HV_FIXM)|The payload information shown here is for the AH message. Please refer to the FIXM schema for the  AH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Flight Plan Information (FH/FH_FIXM)|The payload information shown here is for the HV message. Please refer to the FIXM schema for the  HV_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Flight Plan Reconstitutio (DBRTFPI/DBRTFPI_FIXM)|The payload information shown here is for the FH message. Please refer to the FIXM schema for the  FH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Flight Plan Update Information (HU/HU_FIXM)|The payload information shown here is for the DBRTFPI message. Please refer to the FIXM schema for the  DBRTFPI_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Handoff Status (OH/OH_FIXM)|The payload information shown here is for the HU message. Please refer to the FIXM schema for the  HU_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Hold Information (HH/HH_FIXM)|The payload information shown here is for the OH message. Please refer to the FIXM schema for the  OH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Inbound Point Out Information (PT/PT_FIXM)|The payload information shown here is for the HH message. Please refer to the FIXM schema for the  HH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Interim Altitude Information (LH/LH_FIXM)|The payload information shown here is for the PT message. Please refer to the FIXM schema for the  PT_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Point Out Information (HT/HT_FIXM)|The payload information shown here is for the LH message. Please refer to the FIXM schema for the  LH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Position Update Information (HP/HP_FIXM)|The payload information shown here is for the HT message. Please refer to the FIXM schema for the  HT_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Progress Report Information (PH/PH_FIXM)|The payload information shown here is for the HP message. Please refer to the FIXM schema for the  HP_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Tentative Aircraft Identification Amendment Information (NI/NI_FIXM)|The payload information shown here is for the PH message. Please refer to the FIXM schema for the  PH_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Tentative Flight Plan Amendment Information (NU/NU_FIXM)|The payload information shown here is for the NI message. Please refer to the FIXM schema for the  NI_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Tentative Flight Plan Information (NP/NP_FIXM)|The payload information shown here is for the NU message. Please refer to the FIXM schema for the  NU_FIXM payload.|Out
+EnRouteFlightDataPublication-v2.0(SFDPS)|Tentative Flight Plan Removal (NL/NL_FIXM)|The payload information shown here is for the NP message. Please refer to the FIXM schema for the  NP_FIXM payload.|Out
+EnRouteFlightDataQuery(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription |In
+EnRouteFlightDataQuery(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription |Out
+EnRouteFlightDataQuery-v2.0(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription |In
+EnRouteFlightDataQuery-v2.0(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription |Out
+EnRouteGeneralMessagePublication(SFDPS)|ERAM Status Information (HS)|The ERAM Status Information message is sent when an ERAM status change occurs.|Out
+EnRouteGeneralMessagePublication(SFDPS)|General Information (GH)|A general information message is used to communicate a free-form text message from one facility to one or more other facilities. The content of the message is free-form text, contained in an inter-facility remarks field.|Out
+EnRouteGeneralMessagePublication(SFDPS)|Hold Status Information (HO)|The Hold Status Information message provides hold information (holding fix, and estimated fix departure time for definite-duration holds) on all active aircraft to a client during the initialization process.|Out
+EnRouteGeneralMessagePublication(SFDPS)|Interim Altitude Status Information (HE)|The Interim Altitude Status Information message provides interim altitude status information on all active aircraft to a client during the initialization process.|Out
+EnRouteGeneralMessagePublication(SFDPS)|Unsuccessful Transmission Information (UI)|The Unsuccessful Information Transmission (UI) message issent by ERAM when transmission of flight data to a remote facility is unsuccessful either due to a transmission error or because transmission of the flight data to the remote facility is inhibited.|Out
+EnRouteGeneralMessagePublication-v2.0(SFDPS)|ERAM Status Information (HS)|The ERAM Status Information message is sent when an ERAM status change occurs.|Out
+EnRouteGeneralMessagePublication-v2.0(SFDPS)|General Information (GH)|A general information message is used to communicate a free-form text message from one facility to one or more other facilities. The content of the message is free-form text, contained in an inter-facility remarks field.|Out
+EnRouteGeneralMessagePublication-v2.0(SFDPS)|Hold Status Information (HO)|The Hold Status Information message provides hold information (holding fix, and estimated fix departure time for definite-duration holds) on all active aircraft to a client during the initialization process.|Out
+EnRouteGeneralMessagePublication-v2.0(SFDPS)|Interim Altitude Status Information (HE)|The Interim Altitude Status Information message provides interim altitude status information on all active aircraft to a client during the initialization process.|Out
+EnRouteGeneralMessagePublication-v2.0(SFDPS)|Unsuccessful Transmission Information (UI)|The Unsuccessful Information Transmission (UI) message issent by ERAM when transmission of flight data to a remote facility is unsuccessful either due to a transmission error or because transmission of the flight data to the remote facility is inhibited.|Out
+EnRouteGeneralMessageQuery(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteGeneralMessageQuery(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EnRouteGeneralMessageQuery-v2.0(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteGeneralMessageQuery-v2.0(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EnRouteOperationalDataPublication(SFDPS)|Beacon Code Utilization (UB)|The Beacon Code Utilization Information message is used to provide the peak number of beacon codes used, the total number of adapted codes, and the number of code reassignments since start-up or local midnight, for an adapted period of time.|Out
+EnRouteOperationalDataPublication(SFDPS)|Geographic Beacon Code Utilization (UG)|The Geographic Beacon Code Utilization message provides the total number of adapted beacon codes for each destination region as well as the peak number of beacon codes used for each destination region during the period.|Out
+EnRouteOperationalDataPublication(SFDPS)|Instrument Approach Count Adjustment (AC)|The Instrument Approach Count message is used to adjust (increment or decrement) one of the following instrument approach counts:|Out
+EnRouteOperationalDataPublication(SFDPS)|Sign In Sign Out (SY)||
+	AC (air carrier)||Out
+EnRouteOperationalDataPublication(SFDPS)|Traffic Count Adjustment (AK)||
+	AT (air taxi)||Out
+EnRouteOperationalDataPublication-v2.0(SFDPS)|Beacon Code Utilization (UB)|The Beacon Code Utilization Information message is used to provide the peak number of beacon codes used, the total number of adapted codes, and the number of code reassignments since start-up or local midnight, for an adapted period of time.|Out
+EnRouteOperationalDataPublication-v2.0(SFDPS)|Geographic Beacon Code Utilization (UG)|The Geographic Beacon Code Utilization message provides the total number of adapted beacon codes for each destination region as well as the peak number of beacon codes used for each destination region during the period.|Out
+EnRouteOperationalDataPublication-v2.0(SFDPS)|Instrument Approach Count Adjustment (AC)|The Instrument Approach Count message is used to adjust (increment or decrement) one of the following instrument approach counts:|Out
+EnRouteOperationalDataPublication-v2.0(SFDPS)|Sign In Sign Out (SY)|AC (air carrier)|Out
+EnRouteOperationalDataPublication-v2.0(SFDPS)|Traffic Count Adjustment (AK)||
+	AT (air taxi)||Out
+EnRouteOperationalDataQuery(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteOperationalDataQuery(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EnRouteOperationalDataQuery-v2.0(SFDPS)|FdpsSubscriptionRequestMessage|Subscription Request Message containing a list of subscription criteria that will be used by this service to establish a subscription.|In
+EnRouteOperationalDataQuery-v2.0(SFDPS)|FdpsSubscriptionResponseMessage|Results of the subscription request processing. If no faults were generated, this response will contain the subscription id that the consumer can use to track the subscription.|Out
+EndUserNotification|Notify|Notify message containing one or more Notification(s).|In
+ERAMFlightInformation|Notify|Notify message containing one or more Notification(s).|In
+FlightPlanService(FPS)|CancelFlightPlanRequest|Used by a service consumer to cancel a previously filed flight plan.|In
+FlightPlanService(FPS)|CancelFlightPlanResponse|Used to inform a service consumer that the flight plan has been canceled.|Out
+FlightPlanService(FPS)|FileFlightPlanRequest|Used by a service consumer to submit (file) a flight plan.|In
+FlightPlanService(FPS)|FileFlightPlanResponse|Used to inform a service consumer that flight plan information has been accepted and returns the ID that has been assigned to the flight plan. |Out
+FlightPlanService(FPS)|UpdateDestinationAerodromeRequest|Used by a service consumer to change a destination aerodrome.|In
+FlightPlanService(FPS)|UpdateDestinationAerodromeResponse|Used to inform a service consumer that the original destination aerodrome has been changed.|Out
+FNSNOTAMDistribution|GetCapabilitiesRequest|The message containing the queries to the Service to determine available options. |In
+FNSNOTAMDistribution|GetCapabilitiesResponse|Response message to the getCapabilitiesRequest request. Contains the list of feature types and filtering capabilities of the Service. |Out
+FNSNOTAMDistribution|GetFeatureRequest|The GetFeatureRequest message specifies the criteria to selecting WFS Features. |In
+FNSNOTAMDistribution|GetFeatureResponse|The GetFeatureResponse message contains the list of WFS Features matching the selection criteria of the GetFeatureResponse  message. |Out
+FNSNOTAMPublication|NOTAMTopicMessage|Contains an instance of a NOTAM as a payload along with all message headers. The payload NOTAM is an |Out
+FNSNOTAMPublication|NOTAMTopicMessage|Contains an instance of a NOTAM as a payload along with all message headers. The payload NOTAM is an |Out
+FNSNOTAMPublicationv2.0|NOTAMTopicMessage|Contains an instance of a NOTAM as a payload along with all message headers. The payload NOTAM is an |Out
+GetStaticSAA|GetSaaUuidResponse|Used by the SAA SR Service to return the UUID of an SAA.|Out
+GetStaticSAA|GetUuidRequest|Used by a user to request a set of unused UUIDs.|In
+GetStaticSAA|GetUuidResponse|Used by the SAA SR Service to return a set of  unused UUIDs.|Out
+GetStaticSAA|GetSaaByUuidRequest.|Used by a user to request an SAA with a given UUID.|In
+GetStaticSAA|GetSaaByUuidResponse|Used by the SAA SR Service to return an SAA with a given UUID. |Out
+GetStaticSAA|GetSaaNamesRequest|A request to get a list of all active and pending SAA names.|In
+GetStaticSAA|GetSaaNamesResponse|There are no sub data elements.|Out
+GetStaticSAA|GetSaaUuidRequest|A response containing the keys for all active and pending SAAs.|In
+GetStaticSAA|GetSaaUuidResponse|Used by a user to request the UUID of an SAA with the given name and type.|Out
+GetStaticSAA|GetUnitByUuidRequest|Used by the service to return the UUID of an SAA.|In
+GetStaticSAA|GetUnitByUuidResponse|Used by a user to request a Unit with a given UUID.|Out
+GetStaticSAA|GetUnitsResponse|Used by the SAA SR Service to return a set of  unused UUIDs.|Out
+GetStaticSAA|GetUuidRequest|Used by the service to return an SAA with a given UUID. |In
+GetStaticSAA|GetUnitUuidRequest|Used by a user to request a set of unused UUIDs.|In
+GetStaticSAA|GetUnitUuidResponse|Used by a user to request the UUID of a Unit with the given name and type.|Out
+GetStaticSAA|ValidateSaaRequest|Used by the service to return the UUID of a Unit.|In
+GetStaticSAA|ValidateSaaResponse|Used by a user to validate a submitted SAA definition.|Out
+IntegratedTerminalWeatherService(ITWS)|APIndicatedPrecipitation|The AP (Anomalous Propagation) Indicated Precipitation product indicates the location(s) where the ITWS system has detected the possible location of AP (erroneous data) in each ASR precipitation grid.|Out
+IntegratedTerminalWeatherService(ITWS)|APStatus|The AP Status product is used to signal the presence of Anomalous Propagation (AP) in the precipitation grids.|Out
+IntegratedTerminalWeatherService(ITWS)|ConfiguredAlerts|A Configured Alert product is generated once every ten seconds for each runway at each airport in ITWS coverage. Configured Alerts may be generated more frequently if there are wind shear alerts. The ten seconds mentioned is the maximum time between messages. The wind shear alerts are detected instead of predicted. These messages contain alert notifications if any Wx events (such as wind shear, microburst, gust front, etc.) are predicted to affect the given runway.  These message also contain the current runway configuration for the entire airport, and a reading for the current wind direction and speed for the midpoint of the runway.|Out
+IntegratedTerminalWeatherService(ITWS)|ForecastAccuracy|The Forecast Accuracy product is used by ITWS to rate the accuracy of its previous storm position and intensity forecasts. For example, it will look at the prediction from one hour and one half hour in the past, compare both to the current storm data and determine a accuracuy score (from 1-100) for each of the predictions.|Out
+IntegratedTerminalWeatherService(ITWS)|ForecastContour|The Forecast Contour product contains four predicted contour lines, corresponding to the outer edges of a storm cell, for what ITWS calculates to be the position of the outer boundary of the storm cell for 30 and 60 minutes in the future, and for both standard and winter forecasts.|Out
+IntegratedTerminalWeatherService(ITWS)|ForecastImage|The Forecast Image product is a standard precip image of current precipitation, plus six forecast images, each covering a ten minute period for up to one hour.|Out
+IntegratedTerminalWeatherService(ITWS)|GustFrontETI|he Gust Front ETI product contains the estimated time for the nearest gust front to impact an airport. It will declare an impact when the gust front is within a configurable time (nominally 20 minutes) of reaching the airport.|Out
+IntegratedTerminalWeatherService(ITWS)|GustFrontTRACONMap|A gust front is a leading edge of cool air coming down and radiating out from a thunderstorm. The wind speeds and directions can be different on the leading and trailing sides of the front, and can be hazardous for aviation. ITWS detects gust fronts and other types of frontsand predicts their locations, typically ten and twenty minutes into the future. These messages should be treated with higher priority.|Out
+IntegratedTerminalWeatherService(ITWS)|HazardText5nm|The Hazard Text product is used to associate additional textual information (such as echo top values, hail, severe storm circulation etc.) with the graphical products depicting the current storm.|Out
+IntegratedTerminalWeatherService(ITWS)|HazardTextLongRange|The Hazard Text product is used to associate additional textual information (such as echo top values, hail, severe storm circulation etc.) with the graphical products depicting the current storm.|Out
+IntegratedTerminalWeatherService(ITWS)|HazardTextTRACON|The Hazard Text product is used to associate additional textual information (such as echo top values, hail, severe storm circulation etc.) with the graphical products depicting the current storm.|Out
+IntegratedTerminalWeatherService(ITWS)|ITWS_Status_Information|Provides information about the ITWS status for the External User subsystem. It indicates whether ITWS is in Operational or Maintenance mode. If ITWS is in Maintenance mode, products are not distributed to the External Users. The message also provides an indication of the number of products that have been purged since the last issuance of the message.|Out
+IntegratedTerminalWeatherService(ITWS)|MicroburstATIS|The MicroburstATIS messages are used to determine when microburst advisories should be broadcast through an airport’s Automatic Terminal Information System (ATIS).  The messages include status of a 20 minute countdown timer used to determine when the advisories should be removed from the ATIS.|Out
+IntegratedTerminalWeatherService(ITWS)|MicroburstTRACONMap|The Microburst Tracon Map product is generated whenever a microburst (or wind shear) is either predicted or detected. These messages are extremely important with regard to aviation safety, and must be treated with higher priority.|Out
+IntegratedTerminalWeatherService(ITWS)|Precipitation5nm|The 5nm precipitation product shows data from the TDWR surface level scan in National Weather Service (NWS) VIP 6-levels and areas indicated as attenuated data in a gridded format.|Out
+IntegratedTerminalWeatherService(ITWS)|PrecipitationLongRange|The Long Range precipitation product shows data from the NEXRAD and TDWR radars in National Weather Service (NWS) VIP 6-levels and areas indicated as attenuated data in a gridded format.|Out
+IntegratedTerminalWeatherService(ITWS)|PrecipitationTRACON|The TRACON precipitation product shows data from the ASRs in National Weather Service (NWS) VIP 6-levels in a gridded format after areas of anomalous propagation have been edited out.|Out
+IntegratedTerminalWeatherService(ITWS)|RunwayConfiguration|The Runway Configuration Product is generated when a runway configuration is changed at any ITWS-covered airport.  It is also sent asynchronously based on either operator update or the need to update an Situation Display (SD) that has returned to Operational mode.|Out
+IntegratedTerminalWeatherService(ITWS)|SM_SEP5nm|The Storm Motion Storm Extrapolated Position (SM SEP) product shows motion vectors and contours which indicate the predicted future positions of storm cells. One set of data is generated for the current state, and for 10 and 20 minutes in the future.|Out
+IntegratedTerminalWeatherService(ITWS)|SM_SEPLongRange|The Storm Motion Storm Extrapolated Position (SM SEP) product shows motion vectors and contours which indicate the predicted future positions of storm cells. One set of data is generated for the current state, and for 10 and 20 minutes in the future.|Out
+IntegratedTerminalWeatherService(ITWS)|SM_SEPTRACON|The Storm Motion Storm Extrapolated Position (SM SEP) product shows motion vectors and contours which indicate the predicted future positions of storm cells. One set of data is generated for the current state, and for 10 and 20 minutes in the future.|Out
+IntegratedTerminalWeatherService(ITWS)|TerminalWeatherGraphicsText|The Terminal Weather Graphics Product is a text-based airport-specific product generated only for TDWR (Terminal Display Weather Radar) supported airports. It summarizes in a character-based graphic display a subset of ITWS weather information. The messages contain textual graphics depicting the location of precipitation, microbursts, and gust fronts near an airport.|Out
+IntegratedTerminalWeatherService(ITWS)|TerminalWeatherTextNormal|The Terminal Weather Text products are text-based, airport-specific products generated for TDWR-supported airports. Either NORMAL messages are sent every 10 minutes, or SEND messages are sent when hazardous conditions are occurring, describing the hazards in text form. A CANCEL message is sent when the hazards have ended.|Out
+IntegratedTerminalWeatherService(ITWS)|TerminalWeatherTextSpecial|The Terminal Weather Text products are text-based, airport-specific products generated for TDWR-supported airports. Either NORMAL messages are sent every 10 minutes, or SEND messages are sent when hazardous conditions are occurring, describing the hazards in text form. A CANCEL message is sent when the hazards have ended.|Out
+IntegratedTerminalWeatherService(ITWS)|TornadoAlert|This product is virtually identical to the Terminal Weather Text Normal product, except for the name.|Out
+IntegratedTerminalWeatherService(ITWS)|TornadoDetections|The Tornado Alert product is a text description sent after each Tornado Detection product. It contains the radius of the alert warning around the Airport Reference Point (ARP).|Out
+IntegratedTerminalWeatherService(ITWS)|WindProfile|The TornadoDetections product includes the location of a tornado as determined by the NEXRAD tornado algorithm.|Out
+IntegratedTerminalWeatherService(ITWS)|WindShearATIS|The Wind Profile Product provides wind direction and speeds at different altitudes for pre-configured locations associated with an airport.|Out
+NWSWINSWCSGriddeddataproducts|DescribeCoverageRequest|DescribeCoverage operation request message|In
+NWSWINSWCSGriddeddataproducts|DescribeCoverageResponse|DescribeCoverage operation response message|Out
+NWSWINSWCSGriddeddataproducts|GetCapabilitiesRequest|GetCapabilities operation request message|In
+NWSWINSWCSGriddeddataproducts|GetCapabilitiesResponse|GetCapabilities operation response message|Out
+NWSWINSWCSGriddeddataproducts|GetCoverage Response|GetCoverage operation response message|Out
+NWSWINSWCSGriddeddataproducts|GetCoverageRequest|GetCoverage operation request message|In
+NWSWINSWCSGriddeddataproducts|RenewRequest|Renew operation request message|In
+NWSWINSWCSGriddeddataproducts|RenewResponse|Renew operation response message|Out
+NWSWINSWCSGriddeddataproducts|SubscribeRequest|Subscribe operation request message|In
+NWSWINSWCSGriddeddataproducts|SubscribeResponse|Subscribe operation response message|Out
+NWSWINSWCSGriddeddataproducts|UnsubscribeRequest|Unsubscribe operation request message|In
+NWSWINSWCSGriddeddataproducts|UnsubscribeResponse|Unsubscribe operation response message|Out
+NWSWINSWFSNonGriddedproducts|DescribeFeatureTypeRequest|DescribeFeatureType operation request message|In
+NWSWINSWFSNonGriddedproducts|DescribeFeatureTypeResponse|DescribeFeatureType operation response message|Out
+NWSWINSWFSNonGriddedproducts|GetCapabilitiesRequest|GetCapabilities operation request message|In
+NWSWINSWFSNonGriddedproducts|GetCapabilitiesResponse|GetCapabilities operation response message|Out
+NWSWINSWFSNonGriddedproducts|GetFeatureRequest|GetFeature operation request message|In
+NWSWINSWFSNonGriddedproducts|GetFeatureResponse|GetFeature operation response message|Out
+NWSWINSWFSNonGriddedproducts|RenewRequest|Renew operation request message|In
+NWSWINSWFSNonGriddedproducts|RenewResponse|Renew operation response message|Out
+NWSWINSWFSNonGriddedproducts|SubscribeRequest|Subscribe operation request message|In
+NWSWINSWFSNonGriddedproducts|SubscribeResponse|Subscribe operation response message|Out
+NWSWINSWFSNonGriddedproducts|UnsubscribeRequest|Unsubscribe operation request message|In
+NWSWINSWFSNonGriddedproducts|UnsubscribeResponse|Unsubscribe operation response message|Out
+PublishAltimeterSetting(WMSCR)|Publish Altimeter Setting Report|The WMSCR SWIM client may subscribe to a NEMS specified topic to obtain distributed report.|Out
+PublishPIREP(WMSCR)|Publish PIREP Report|The WMSCR SWIM client may subscribe to a NEMS specified topic to obtain distributed reports. |Out
+PutStaticSAA|Publish PIREP Report|The WMSCR SWIM client may subscribe to a NEMS specified topic to obtain distributed reports. |Out
+SAAOperationalSchedule|Publish PIREP Report|The WMSCR SWIM client may subscribe to a NEMS specified topic to obtain distributed reports. |Out
+SAAScheduleNotification|SaaScheduleMessage|The top level AIXM message object that contains all the other AIXM elements that describe a SAA schedule. |Out
+StaticSAAUpdatesNotification|SAA_Notification|The JMS message that is sent out to subscribers when an SAA in the Static Repository is inserted or updated.|Out
+STDDSAirportDataService(APDS)|RVRDataUpdateMessage|Runway data sent upon the receipt of RVR data includes ICAO TRACON and Airport codes|Out
+STDDSInfrastructureSystemMonitorandControl(ISMC)|AirportDataServiceStatus|Provides the status of the APDS and external RVR links associated with the service.|Out
+STDDSInfrastructureSystemMonitorandControl(ISMC)|SurfaceMovementEventServiceStatus|Message Type = AS|Out
+STDDSInfrastructureSystemMonitorandControl(ISMC)|TerminalAutomationServiceStatus|Provides the status of the SMES and external ASDE-X/ASSC links associated with the service.|Out
+STDDSInfrastructureSystemMonitorandControl(ISMC)|TowerDepartureEventServiceStatus|Message Type = SS|Out
+STDDSSurfaceMovementEvent(SMES)|ASDEXMessage|Sent upon the receipt of a|Out
+STDDSSurfaceMovementEvent(SMES)|SurfaceMovementEventMessage||
+	System Track message or a||Out
+STDDSTerminalAutomationInformation(TAIS)|AIG100 ST|TerminalAutomationStatus|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG200 FP|Not Sensitive|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG300 AR|Parsed XML|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG500 SI|TerminalAutomationTrackAndFlightPlanData|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG502 IR|Filtered|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG510 CR|Parsed XML|Out
+STDDSTerminalAutomationInformation(TAIS)|AIG700 CR|TerminalAutomationAlertDataRaw|Out
+STDDSTowerDepartureEvent(TDES)|ReconstitutionRequestStatusMessage|Response to a reconstitution request. The MsgType indicates if the reconstitution request has been accepted (RA), or rejected (RF).|Out
+STDDSTowerDepartureEvent(TDES)|ReconstitutionSubscriptionToDepartureDataMessage|End-user request for a reconstitution of tower departure events|In
+STDDSTowerDepartureEvent(TDES)|TowerDepartureEventMessage|Sent upon the receipt of a corresponding event from EFSTS and/or TDLS. The MsgType indicates if this event is new (DE) or reconstituted (DR).|Out
+STDDSTowerDepartureEvent(TDES)|TowerDepartureEventReconstitutionCompleteMessage|Indicates the end of a set of reconstituted messages|Out
+STDDSTowerDepartureEvent(TDES)|TowerDepartureEventReconstitutionStartMessage|Indicates the beginning of a set of reconstituted messages|Out
+SubmitAltimeterSetting(WMSCR)|wmscr:SubmitAltSetRequest|Used by clients to submit altimeter setting reports that are stored in the database for later dissemination.|In
+SubmitAltimeterSetting(WMSCR)|wmscr:SubmitAltSetResponse|This message is used in a synchronous message exchange pattern.|Out
+SubmitPIREP(WMSCR)|wmscr:SubmitPirepRequest|Used by clients to submit altimeter setting reports that are stored in the database for later dissemination.|In
+SubmitPIREP(WMSCR)|wmscr:SubmitPirepResponse|This message is used in a synchronous message exchange pattern.|Out
+TBFMMeteringPublication(TBFM-MIS)|Adaptation Information <adp>|Provides information about applicable system adaptation to include TRACON names, gate names, configuration names, Meter Reference Point names, and stream class names.|Out
+TBFMMeteringPublication(TBFM-MIS)|Aircraft Information <air>|Average size per message = 2519 bytes|Out
+TBFMMeteringPublication(TBFM-MIS)|Configuration Information <con>|Estmated worst case number of <adp> messages during sync: 25 messages|Out
+TBFMMeteringPublication(TBFM-MIS)|Other Information <oth>|Message frequency: Publishes only during syncs…. upon startup and  every 15 minutes per periodic sync|Out
+TBFMMeteringPublication(TBFM-MIS)|Synchronization|Message latency: 1 sec|Out
+TBFMReleaseTimeCoordinationService(TBFM-RTCS)|Synchronization|Message latency: 1 sec|Out
+TFDMAirportandFlightInformation(AFIS)|AirportConfigurationMsg|Publishes the current airport configuration for an airport|Out
+TFDMFlightSubstitutionsandOperationalMetricsService(FSOMS)|AirportConfigurationMsg|Publishes the current airport configuration for an airport|Out
+TFDMFOSAirportDataInformation(ADIS)|AirportConfigurationMsg|Publishes the current airport configuration for an airport|Out
+TFDMGeneralInformationService(GIS)|AirportConfigurationMsg|Publishes the current airport configuration for an airport|Out
+TFDMInformationService(TIS)|AirportConfigurationMsg|Publishes the current airport configuration for an airport|Out
+TFMData|Flight Data Messages|Air Traffic Flow Data consists of correlated aircraft flight data information received from various NAS sources and international participants. It contains scheduling and routing data and positional information.|Out
+TFMData|Flow Information|Flow Information will be provided to FAA-authorized users via NEMS.|Out
+TFMDataR13|Flight Data|Air Traffic Flow Data consists of correlated aircraft flight data information received from various NAS sources and international participants. It contains scheduling and routing data and positional information.|Out
+TFMDataR13|Flow Information|Flow Information will be provided to FAA-authorized users via NEMS.|Out
+TFMDataR13|International Data|The International Data business function provides the capability for TFM to exchange flight data with IDP. The message set was originally designed based on the 2007 and 2012 versions of “Doc 4444 ATM/501 Procedures for Air Navigation Services” from International Civil Aviation Organization. The TFMData implementation of International Data carries that original design but makes use of the FIXM standard for message implementation.|Out
+TFMDataR13|Terminal Flight Data|Terminal Flight Data business function includes data exchanges that are part of the surface movement flow management. The incoming data flow provides target times for movement area entry, off-block, and take-off and the projected wheels-up time. See Figure 5‑6 Terminal Data – Input. The outgoing data consists of flight updates similar to the input with the additional related data provided by airline participants via the Flight Data Block request-reply service business function. Figure 5‑7 Terminal Data – Output shows the messages that comprise the output. Detailed definition of both input and output messages and their contents is provided in Appendix B Table B-12 Terminal Flight Data.  Note that both the input and output Terminal Flight Data messages reference FIXM Core v3.0 Schemas and FIXM US Extension v3.1 Schemas in the flight object since neither, on its own, satisfied all of the required content.|Out
+TFMDataR13|TFMS Request Reply|The TFMData service TFMS Request Reply business function provides the capability to interact with the TFMS system in order to:|Out
+TFMDataR13|TFMS Status|The TFMData Status business function provides status of all of the data flows that directly or indirectly contribute to all of the JMS messages received and/or transmitted to SWIM via NEMS. These include:|Out
+TFMSDepartureQueueAcknowledgmentService(DQAS)|TFMS Status|The TFMData Status business function provides status of all of the data flows that directly or indirectly contribute to all of the JMS messages received and/or transmitted to SWIM via NEMS. These include:|Out
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByRegionRequest|Retrieves reports using a region as search criteria – a region consists of a US state, an ARTCC, a station surrounded by a mile radius, or a lat/long surrounded by a mile radius.|In
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByRegionResponse|Responds with report data that match the search criteria.|Out
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByStationRequest|Retrieves reports using a stationId as search criteria.|In
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByStationResponse|Responds with report data that match the search criteria.|Out
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByRegionRequest|Retrieves reports using a region as search criteria – a region consists of a US state, an ARTCC, a station surrounded by a mile radius, or a lat/long surrounded by a mile radius.|In
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByRegionResponse|Responds with report data that match the search criteria.|Out
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByStationRequest|Retrieves reports using a stationId as search criteria.|In
+WMSCRReportRetrieval(WMSCR)|wmscr:FindByStationResponse|Responds with report data that match the search criteria.|Out

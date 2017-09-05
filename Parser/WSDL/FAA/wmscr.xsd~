@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Renee Reiff (private) -->
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Scott A Boje (Operations) -->
+<xsd:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:aw="urn:us:gov:dot:faa:weather:iesp:nwrx:aviationwx:1:0" xmlns="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xsd:import namespace="urn:us:gov:dot:faa:weather:iesp:nwrx:aviationwx:1:0" schemaLocation="aviationwx.xsd"/>
+	<xsd:import schemaLocation="gml.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>wmscr.xsd
+The WMSCR schema
+		</xsd:documentation>
+	</xsd:annotation>
+	<!--
+	 *******************************    Message Elements  *************************************
+	 -->
+	<xsd:element name="AcknowledgeReportMessage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:System"/>
+				<xsd:element ref="trackingNumber"/>
+				<xsd:element name="statusCode" type="xsd:long"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DistributeReportMessage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="trackingNumber"/>
+				<xsd:element ref="aw:stationId"/>
+				<xsd:element ref="aw:samplingTime"/>
+				<xsd:element name="reportType" type="requestReportTypes"/>
+				<xsd:element name="reportLocation" type="gml:PointType" minOccurs="0"/>
+				<xsd:element name="report">
+					<xsd:complexType>
+						<xsd:choice>
+							<xsd:element ref="aw:AircraftReport"/>
+							<xsd:element ref="aw:SurfaceObservation"/>
+						</xsd:choice>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ErrorResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="responseCode"/>
+				<xsd:element ref="errorText"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByTRLRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:System"/>
+				<xsd:element ref="trlText"/>
+				<xsd:element ref="requestContext" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByStationRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:System"/>
+				<xsd:element name="reportType" type="requestReportTypes"/>
+				<xsd:element ref="aw:stationId"/>
+				<xsd:element ref="altitude" minOccurs="0"/>
+				<xsd:element ref="startDateTime" minOccurs="0"/>
+				<xsd:element ref="endDateTime" minOccurs="0"/>
+				<xsd:element ref="requestContext" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByRegionRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:System"/>
+				<xsd:element name="reportType" type="requestReportTypes"/>
+				<xsd:element ref="region"/>
+				<xsd:element ref="altitude" minOccurs="0"/>
+				<xsd:element ref="startDateTime" minOccurs="0"/>
+				<xsd:element ref="endDateTime" minOccurs="0"/>
+				<xsd:element ref="requestContext" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByTRLResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element ref="retrievalResponseReport" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByStationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="retrievalResponseReport" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FindByRegionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="retrievalResponseReport" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SubmitAltSetRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:WxProcess"/>
+				<xsd:element ref="aw:SurfaceObservation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SubmitAltSetResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SubmitPirepRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:AircraftReport"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SubmitPirepResponse">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--
+	********************************** Types ****************************************
+	-->
+	<xsd:simpleType name="retrievalDirectionTypes">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration for the retrieval direction - which way the reports should be returned in a response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Next"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="requestReportTypes">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration for types of reports used in WMSCR requests.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PIREP"/>
+			<xsd:enumeration value="Urgent PIREP"/>
+			<xsd:enumeration value="ALSTG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--
+	 *******************************    Elements  *************************************
+	 -->
+	<xsd:element name="altitude">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="artccId">
+		<xsd:annotation>
+			<xsd:documentation>This field specifies an ARTCC ID.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="3"/>
+				<xsd:maxLength value="3"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:simpleType name="dateTime">
+		<xsd:restriction base="xsd:dateTime"/>
+	</xsd:simpleType>
+	<xsd:element name="detailCode" type="xsd:string"/>
+	<xsd:element name="endDateTime" type="dateTime"/>
+	<xsd:element name="errorText" type="xsd:string"/>
+	<xsd:element name="primaryKey" type="xsd:string"/>
+	<xsd:element name="region">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="usState"/>
+				<xsd:element ref="artccId"/>
+				<xsd:element ref="stationCircle"/>
+				<xsd:element ref="gml:CircleByCenterPoint"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reportType">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="surfaceObservationReportType" type="aw:surfaceObservationReportTypes"/>
+				<xsd:element name="aircraftReportType" type="aw:aircraftReportTypes"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requestContext">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="primaryKey"/>
+				<xsd:element ref="retrievalDirection"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requestId" type="xsd:string"/>
+	<xsd:element name="responseCode" type="xsd:int"/>
+	<xsd:element name="retrievalDirection" type="retrievalDirectionTypes"/>
+	<xsd:element name="retrievalResponseReport">
+		<xsd:annotation>
+			<xsd:documentation>A report included within a retrieval response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="errorText" minOccurs="0"/>
+				<xsd:element ref="detailCode" minOccurs="0"/>
+				<xsd:element ref="primaryKey" minOccurs="0"/>
+				<xsd:element name="reportType" type="requestReportTypes" minOccurs="0"/>
+				<xsd:element ref="aw:stationId" minOccurs="0"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="aw:AircraftReport"/>
+					<xsd:element ref="aw:SurfaceObservation"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="startDateTime" type="dateTime"/>
+	<xsd:element name="stationCircle">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aw:stationId"/>
+				<xsd:element name="radius" type="gml:LengthType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="trackingNumber" type="xsd:long"/>
+	<xsd:element name="trlText" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>The TRL text.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="usState">
+		<xsd:annotation>
+			<xsd:documentation>This field specifies a US State abbreviation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="2"/>
+				<xsd:maxLength value="2"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

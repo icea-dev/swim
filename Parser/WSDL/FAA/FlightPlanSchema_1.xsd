@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns="urn:us:gov:dot:faa:example:atm:enroute:fps:entities" targetNamespace="urn:us:gov:dot:faa:example:atm:enroute:fps:entities" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+	Title: FlightPlan schema for WSDD Example.
+     Description: This schema declares XML elements for defining
+     a Flight Plan transmitted by FlightPlanService
+     Creator: Mark Kaplun (mark.kaplun@faa.gov)
+     Date:  2010-01-21
+     </xs:documentation>
+  </xs:annotation>
+  <!-- /////////////////////////////////////////////////////////////////
+                   Global types 
+        ////////////////////////////////////////////////////////////////// -->
+  <xs:element name="FlightPlan">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- "FlightPlanId" is always required.
+		When flight plan is filed and the "FlightPlanId" element has no content
+		- the content is nil. -->
+        <xs:element name="FlightPlanId" type="FlightPlanIdType" nillable="true"/>
+        <xs:element name="Originator" type="OriginatorType"/>
+        <xs:element ref="Aircraft"/>
+        <xs:element ref="Route"/>
+      </xs:sequence>
+      <xs:attribute name="filingTime" type="xs:dateTime" use="required"/>
+      <xs:attribute name="flightRule" type="FlightRuleType" use="required"/>
+      <xs:attribute name="numberOfAircraft" type="xs:positiveInteger" default="1"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Aircraft" type="AircraftType"/>
+  <xs:element name="Route" type="RouteType"/>
+  <!-- /////////////////////////////////////////////////////////////////
+                   Types definitions
+   ////////////////////////////////////////////////////////////////// -->
+  <xs:simpleType name="FlightPlanIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AircraftType">
+    <xs:sequence>
+      <xs:element name="Equipage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Communication" type="xs:string"/>
+            <xs:element name="Navigation" type="xs:string"/>
+            <xs:element name="Surveillance" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WakeTurbulenceCategory" type="WakeTurbulenceCategoryType"/>
+    </xs:sequence>
+    <xs:attribute name="aircraftId" type="xs:string"/>
+    <xs:attribute name="aircraftType" type="xs:string"/>
+    <!-- Values are listed in ICAO 8643, Aircraft Type Designators,
+		http://www.icao.int/anb/ais/8643/index.cfm.-->
+  </xs:complexType>
+  <xs:complexType name="OriginatorType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="airmanId" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="RouteType">
+    <xs:sequence>
+      <xs:element name="Altitude" type="AltitudeType"/>
+      <xs:element name="EstimatedTime ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="EstimatedDepartureTime" type="xs:time"/>
+            <xs:element name="EstimatedEnRouteTime" type="xs:duration"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AirSpeed" type="AirSpeedType"/>
+      <xs:element name="DepartureAerodrome" type="AerodromeType"/>
+      <xs:element name="DestinationAerodrome" type="AerodromeType"/>
+      <xs:element name="AlternateAerodrome" type="AerodromeType"/>
+      <xs:any minOccurs="0" maxOccurs="unbounded">
+        <!--This element is declared as "any" to indicate that Route element
+	     can be extended with elements such as: fixes (significant points),
+		route names, route segments and etc. -->
+      </xs:any>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AerodromeType">
+    <xs:annotation>
+      <xs:documentation>
+	   Values for aerodrome Ids are listed in ICAO Document 7910, 
+	   Location  Indicators, http://www.icao.int/eshop/index.html. 
+	</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="aerodromeId" type="AerodromeIdType" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="SpeedBase">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:complexType name="TrueSpeedType">
+    <xs:simpleContent>
+      <xs:extension base="SpeedBase">
+        <xs:attribute name="uom" type="UnitOfSpeedType" default="knots"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AirSpeedType">
+    <xs:sequence>
+      <xs:element name="TrueSpeed" type="TrueSpeedType"/>
+      <xs:element name="MachNumber" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AltitudeBase">
+    <xs:restriction base="xs:nonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:complexType name="AltitudeType">
+    <xs:simpleContent>
+      <xs:extension base="AltitudeBase">
+        <xs:attribute name="uom" type="UnitOfAltitudeType" default="foot"/>
+        <xs:attribute name="referenceDatum" type="ReferenceDatumType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- /////////////////////////////////////////////////////////////////
+                   Code types 
+     ////////////////////////////////////////////////////////////////// -->
+  <xs:simpleType name="AerodromeIdType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4"/>
+      <xs:pattern value="[A-Z][A-Z][A-Z][A-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- /////////////////////////////////////////////////////////////////
+                   Enumerations types 
+     ////////////////////////////////////////////////////////////////// -->
+  <xs:simpleType name="FlightRuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="V"/>
+      <xs:enumeration value="Y"/>
+      <xs:enumeration value="Z"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WakeTurbulenceCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="H"/>
+      <xs:enumeration value="HEAVY"/>
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="MEDIUM"/>
+      <xs:enumeration value="L"/>
+      <xs:enumeration value="LIGHT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReferenceDatumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="local"/>
+      <xs:enumeration value="standard"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- /////////////////////////////////////////////////////////////////////
+                   Units of Measurement  enumerations  
+ /////////////////////////////////////////////////////////////////////// -->
+  <xs:simpleType name="UnitOfSpeedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="km/h"/>
+      <xs:enumeration value="knots"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnitOfAltitudeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="m"/>
+      <xs:enumeration value="meter"/>
+      <xs:enumeration value="foot"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Renee Reiff (private) -->
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Scott A Boje (Operations) -->
+<xsd:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="urn:us:gov:dot:faa:weather:iesp:nwrx:aviationwx:1:0" xmlns:wx="http://www.eurocontrol.int/wx/1.1" xmlns:avwx="http://www.eurocontrol.int/wxxs/1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:aviationwx:1:0" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="OGC/net/opengis/gml/3.2.1/gml.xsd"/>
+	<xsd:import namespace="http://www.eurocontrol.int/wxxs/1.1" schemaLocation="OGC/int/eurocontrol/wxxs/1.1.0/wxxs.xsd"/>
+	<xsd:import namespace="http://www.eurocontrol.int/wx/1.1" schemaLocation="OGC/int/eurocontrol/wx/1.1.0/wx.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>aviationWx.xsd
+The aviation weather schema
+		</xsd:documentation>
+	</xsd:annotation>
+	<!--
+	********************************** Types ****************************************
+	-->
+	<xsd:simpleType name="aircraftReportTypes">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration for types of Pilot Reports.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PIREP"/>
+			<xsd:enumeration value="Urgent PIREP"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Bearing">
+		<xsd:annotation>
+			<xsd:documentation>Bearing is an angle restricted to the range 0-360 degrees.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="wx:AngleBase">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="360"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FlightLevel">
+		<xsd:annotation>
+			<xsd:documentation>The flight level in feet above sea level.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:union memberTypes="xsd:double">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="UNKN"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="icaoCode">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="surfaceObservationReportTypes">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration for types of Surface Observation Reports.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ALSTG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TurbulenceTypes">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration for types of turbulence.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CAT"/>
+			<xsd:enumeration value="CHOP"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--
+	 *******************************    Elements  *************************************
+	 -->
+	<xsd:element name="aerodromeObservation">
+		<xsd:annotation>
+			<xsd:documentation>The aerodrome observation
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="samplingTime"/>
+				<xsd:element ref="procedure"/>
+				<xsd:element ref="observedProperty"/>
+				<xsd:element ref="aerodromeResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="aerodromeResult">
+		<xsd:annotation>
+			<xsd:documentation>The aerodrome observation result.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="alstgResult"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="aerodromeWxObservation">
+		<xsd:annotation>
+			<xsd:documentation>The aerodrome weather observation.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="aerodromeObservation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="aircraftId" type="gml:CodeWithAuthorityType">
+		<xsd:annotation>
+			<xsd:documentation>The aircraft identifier
+              </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AircraftReport">
+		<xsd:annotation>
+			<xsd:documentation>Aircraft report
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="rawText" minOccurs="0"/>
+				<xsd:element ref="WxProcess"/>
+				<xsd:element ref="stationId"/>
+				<xsd:element ref="aircraftReportType"/>
+				<xsd:element ref="aircraftId"/>
+				<xsd:element ref="airspaceWxObservation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="aircraftReportType" type="aircraftReportTypes">
+		<xsd:annotation>
+			<xsd:documentation>The report type
+              </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="airportLocation">
+		<xsd:annotation>
+			<xsd:documentation>The airport.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="airport" type="gml:CodeWithAuthorityType"/>
+				<xsd:element name="bearing" type="Bearing" minOccurs="0"/>
+				<xsd:element name="distance" type="wx:DistanceBase" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airPressure" type="wx:Pressure">
+		<xsd:annotation>
+			<xsd:documentation>The air pressure
+              </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="airspace">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="icaoCode" type="xsd:string" minOccurs="0"/>
+				<xsd:element ref="gml:Point" minOccurs="0"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airspaceObservation">
+		<xsd:annotation>
+			<xsd:documentation>The airspace observation
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="samplingTime"/>
+				<xsd:element ref="procedure"/>
+				<xsd:element ref="observedProperty"/>
+				<xsd:element ref="featureOfInterest"/>
+				<xsd:element ref="airspaceResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airspaceWx">
+		<xsd:annotation>
+			<xsd:documentation>Area of interest for weather-related observations and forecasts of relevance to an airspace.
+Extends AviationWx by adding properties for phenomena of relevance to airborne flights.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="icing" minOccurs="0"/>
+				<xsd:element ref="turbulence" minOccurs="0"/>
+				<xsd:element ref="cloudCondition" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airspaceResult">
+		<xsd:annotation>
+			<xsd:documentation>The airspace observation result.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="pirepResult"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airspaceWxObservation">
+		<xsd:annotation>
+			<xsd:documentation>The airspace observation.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="airspaceObservation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="airTemperature" type="avwx:AirTemperature"/>
+	<xsd:element name="aviationWx">
+		<xsd:annotation>
+			<xsd:documentation>Generic area of interest for weather-related observations and forecasts.  Contains properties relating to general weather conditions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="windSpeed" minOccurs="0"/>
+				<xsd:element ref="windDirection" minOccurs="0"/>
+				<xsd:element ref="airTemperature" minOccurs="0"/>
+				<xsd:element ref="airPressure" minOccurs="0"/>
+				<xsd:element ref="visibility" minOccurs="0"/>
+				<xsd:element ref="weatherPhenomena" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="alstgResult">
+		<xsd:annotation>
+			<xsd:documentation>The ATSTG result.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="airPressure"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="cloudCondition">
+		<xsd:annotation>
+			<xsd:documentation>Cloud condition
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="amount" type="wx:CloudAmount"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="featureOfInterest">
+		<xsd:annotation>
+			<xsd:documentation>The featureOfInterest is a feature of any type (ISO 19109, ISO 19101), which is a representation of the observation target, being the real-world object regarding which the observation is made.
+		such as a specimen, station, tract, mountain, pixel, etc.
+		The spatial properties (location) of this feature of interest are typically of most interest for spatial analysis of the observation result.  				</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="gml:Point" minOccurs="0"/>
+				<xsd:element ref="location" minOccurs="0"/>
+				<xsd:element name="flightLevel" type="FlightLevel"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="hydrometeorPhenomena">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="wx:HydrometeorTypes"/>
+				<xsd:element name="isFreezing" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="partial" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="patchy" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="shallow" type="xsd:boolean" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="icing">
+		<xsd:annotation>
+			<xsd:documentation>Icing
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="avwx:IcingTypes"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="intensity" type="wx:WeatherIntensity">
+		<xsd:annotation>
+			<xsd:documentation>Weather intensity.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="lithometeorPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>lithometeor
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="wx:LithometeorTypes"/>
+				<xsd:element name="isBlowing" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="isLowDrifting" type="xsd:boolean" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="location">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element ref="navaidLocation"/>
+					<xsd:element ref="airportLocation"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="navaidLocation">
+		<xsd:annotation>
+			<xsd:documentation>The NAVAID.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="navaid" type="gml:CodeWithAuthorityType"/>
+				<xsd:element name="bearing" type="Bearing" minOccurs="0"/>
+				<xsd:element name="distance" type="wx:DistanceBase" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="observedProperty">
+		<xsd:annotation>
+			<xsd:documentation>The observed property.
+             </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phenomenon" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="otherPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>storm
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity" minOccurs="0"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="wx:OtherPhenomenonTypes"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="pirepResult">
+		<xsd:annotation>
+			<xsd:documentation>The PIREP result.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="icing" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="turbulence" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="cloudCondition" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="windSpeed" minOccurs="0"/>
+				<xsd:element ref="windDirection" minOccurs="0"/>
+				<xsd:element ref="airTemperature" minOccurs="0"/>
+				<xsd:element ref="visibility" minOccurs="0"/>
+				<xsd:element ref="weatherPhenomena" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="remarks" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="precipitationPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>precipitation
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity" minOccurs="0"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="wx:PrecipitationTypes"/>
+				<xsd:element name="isFreezing" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="isBlowing" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="isLowDrifting" type="xsd:boolean" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="procedure">
+		<xsd:annotation>
+			<xsd:documentation>The procedure.
+             </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="process" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="rawText" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>The observation raw text.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="remarks" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>The remarks.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="samplingTime" type="gml:TimePositionType">
+		<xsd:annotation>
+			<xsd:documentation>The samplingTime is the time that the result applies to the feature-of-interest.
+This is the time usually required for geospatial analysis of the result.
+             </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="stationId" type="gml:CodeWithAuthorityType">
+		<xsd:annotation>
+			<xsd:documentation>The observation station.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="showerPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>shower
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity" minOccurs="0"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="embedded" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="obscured" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="widespread" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element ref="precipitationPhenomena"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SurfaceObservation">
+		<xsd:annotation>
+			<xsd:documentation>Surface observation report
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="rawText" minOccurs="0"/>
+				<xsd:element ref="surfaceObservationReportType"/>
+				<xsd:element ref="stationId"/>
+				<xsd:element name="appliesTo" type="icaoCode" minOccurs="0"/>
+				<xsd:element name="automated" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="missing" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element ref="aerodromeWxObservation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="surfaceObservationReportType" type="surfaceObservationReportTypes">
+		<xsd:annotation>
+			<xsd:documentation>The report type
+              </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="System" type="gml:CodeWithAuthorityType"/>
+	<xsd:element name="thunderstormPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>thunderstorm
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity" minOccurs="0"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="embedded" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="obscured" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="widespread" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element ref="precipitationPhenomena" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="turbulence">
+		<xsd:annotation>
+			<xsd:documentation>Turbulence
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="intensity"/>
+				<xsd:element name="base" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="top" type="gml:MeasureType" minOccurs="0"/>
+				<xsd:element name="type" type="TurbulenceTypes" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="visibility" type="xsd:double"/>
+	<xsd:element name="weatherPhenomena">
+		<xsd:annotation>
+			<xsd:documentation>weather phenomena
+              </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="thunderstormPhenomena"/>
+				<xsd:element ref="showerPhenomena"/>
+				<xsd:element ref="precipitationPhenomena"/>
+				<xsd:element ref="hydrometeorPhenomena"/>
+				<xsd:element ref="lithometeorPhenomena"/>
+				<xsd:element ref="otherPhenomena"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="windSpeed" type="avwx:WindSpeed"/>
+	<xsd:element name="windDirection" type="avwx:WindDirection"/>
+	<xsd:element name="WxProcess">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="systems">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="System" minOccurs="0" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

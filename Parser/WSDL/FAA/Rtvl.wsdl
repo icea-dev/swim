@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Description: Service for a Retrieval Request.   -->
+<!--  -->
+<!--  -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns="urn:us:gov:dot:faa:weather:iesp:nwrx:2:0" xmlns:ns="http://www.eurocontrol.int/wx/1.1" xmlns:ns1="http://www.eurocontrol.int/wxxs/1.1" xmlns:ns2="http://www.isotc211.org/2005/gco" xmlns:ns3="http://www.isotc211.org/2005/gmd" xmlns:ns4="http://www.isotc211.org/2005/gts" xmlns:ns5="http://www.opengis.net/gml/3.2" xmlns:ns6="http://www.opengis.net/om/1.0/gml32" xmlns:ns7="http://www.opengis.net/sensorML/1.0/gml32" xmlns:ns8="http://www.opengis.net/swe/1.0/gml32" xmlns:ns9="urn:us:gov:dot:faa:weather:iesp:nwrx:aviationwx:2:0" xmlns:ns10="http://www.isotc211.org/2005/gsr" xmlns:ns11="http://www.isotc211.org/2005/gss" xmlns:ns12="urn:us:gov:ic:ism:v2" xmlns:ns13="http://schemas.xmlsoap.org/soap/encoding/" name="Rtvl_wsdl" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:2:0">
+	<wsdl:types>
+		<xsd:schema xmlns:ns="urn:us:gov:dot:faa:weather:iesp:nwrx:2:0" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:2:0">
+			<xsd:include schemaLocation="nwrx.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="StationRequest">
+		<wsdl:part name="payload" element="FindByStationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="StationResponse">
+		<wsdl:part name="payload" element="FindByStationResponse"/>
+	</wsdl:message>
+	<wsdl:message name="RegionRequest">
+		<wsdl:part name="payload" element="FindByRegionRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RegionResponse">
+		<wsdl:part name="payload" element="FindByRegionResponse"/>
+	</wsdl:message>
+	<wsdl:message name="Fault">
+		<wsdl:part name="payload" element="ErrorResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="Retrieval">
+		<wsdl:operation name="FindByStationRetrieval">
+			<wsdl:input message="StationRequest"/>
+			<wsdl:output message="StationResponse"/>
+			<wsdl:fault name="anyFault" message="Fault"/>
+		</wsdl:operation>
+		<wsdl:operation name="FindByRegionRetrieval">
+			<wsdl:input message="RegionRequest"/>
+			<wsdl:output message="RegionResponse"/>
+			<wsdl:fault name="anyFault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RtvlSOAP11Binding" type="Retrieval">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="FindByStationRetrieval">
+			<soap:operation soapAction="urn:Retrieval" style="document"/>
+			<wsdl:input>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="anyFault">
+				<soap:fault name="anyFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="FindByRegionRetrieval">
+			<soap:operation soapAction="urn:Retrieval" style="document"/>
+			<wsdl:input>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="anyFault">
+				<soap:fault name="anyFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RetrievalSvc">
+		<wsdl:port name="RetrievalEndpoint" binding="RtvlSOAP11Binding">
+			<soap:address location="http://0.0.0.0:60000/retrievalV2/"/>
+		</wsdl:port>
+		<wsdl:port name="RetrievalSecEndpoint" binding="RtvlSOAP11Binding">
+			<soap:address location="https://0.0.0.0:60001/retrievalV2/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

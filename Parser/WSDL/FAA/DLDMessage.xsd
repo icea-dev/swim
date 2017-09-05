@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<!-- Change Log -->
+<!-- Version     Date       Author          Change                                                  -->
+<!--     0.1    01May2017   ME Johnson      Initial Release                                         -->
+<!--     0.2    31May2017   ME Johnson      Added sessionTime A622.flight_id, use ICAO for operator -->
+<!--                                                                                                -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:do258="http://harris.com/DO258A" xmlns="http://harris.com/DLD" targetNamespace="http://harris.com/DLD" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://harris.com/DO258A" schemaLocation="./DO258A.xsd"/>
+	<xs:element name="DLD" type="DLD"/>
+	<xs:complexType name="DLD">
+		<xs:choice>
+			<xs:element name="FN_CON" type="FN_CON" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FN_AK" type="FN_AK" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FN_COMP" type="FN_COMP" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FN_CAD" type="FN_CAD" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FN_RESP" type="FN_RESP" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CR1" type="CR1" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CC1" type="CC1" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DR1" type="DR1" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CPDLC_UL" type="CPDLC_UL" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CPDLC_DL" type="CPDLC_DL" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="MAS" type="MAS" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Common">
+		<xs:sequence>
+			<xs:element name="attributes" type="Attributes" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="a620" type="A620" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FN_CON">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FN_AK">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="reasonCode" type="ReasonCode" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FN_COMP">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="nextATC" type="NextATC" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="reasonCode" type="ReasonCode" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FN_CAD">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="nextATC" type="NextATC" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FN_RESP">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="reasonCode" type="ReasonCode" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CR1">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="ATCuplinkmessage" type="do258:ATCuplinkmessage" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CC1">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="ATCdownlinkmessage" type="do258:ATCdownlinkmessage" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DR1">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="ATCdownlinkmessage" type="do258:ATCdownlinkmessage" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CPDLC_UL">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="ATCuplinkmessage" type="do258:ATCuplinkmessage" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CPDLC_DL">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence>
+					<xs:element name="ATCdownlinkmessage" type="do258:ATCdownlinkmessage" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MAS">
+		<xs:complexContent>
+			<xs:extension base="Common">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Attributes">
+		<xs:sequence>
+			<xs:element name="version" type="Version" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageId" type="MessageId" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sessionTime" type="SessionTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timestamp" type="Timestamp" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DLD_Sensitive" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageType" type="MessageType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="atsu" type="Atsu" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="csp" type="Csp" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="flightId" type="FlightId" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="operator" type="Operator" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageDirection" type="MessageDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="application" type="Application" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tailNumber" type="TailNumber" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Version">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageId">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+			<xs:minLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SessionTime">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="26"/>
+			<xs:minLength value="26"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Timestamp">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="26"/>
+			<xs:minLength value="26"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FN_CON"/>
+			<xs:enumeration value="FN_AK"/>
+			<xs:enumeration value="FN_COMP"/>
+			<xs:enumeration value="FN_CAD"/>
+			<xs:enumeration value="FN_RESP"/>
+			<xs:enumeration value="CR1"/>
+			<xs:enumeration value="CC1"/>
+			<xs:enumeration value="DR1"/>
+			<xs:enumeration value="CPDLC_UL"/>
+			<xs:enumeration value="CPDLC_DL"/>
+			<xs:enumeration value="MAS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Atsu">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:minLength value="4"/>
+			<xs:pattern value="[A-Z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Csp">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ARINC"/>
+			<xs:enumeration value="SITA"/>
+			<xs:enumeration value="TEST"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FlightId">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Operator">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="1"/>
+			<xs:pattern value="[A-Z\.][A-Z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MessageDirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="uplink"/>
+			<xs:enumeration value="downlink"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Application">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AFN"/>
+			<xs:enumeration value="CPDLC"/>
+			<xs:enumeration value="TECH"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TailNumber">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+			<xs:pattern value="[A-Z0-9.-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="A620">
+		<xs:sequence>
+			<xs:element name="signature" type="Signature" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="destination" type="Destination" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="smi" type="Smi" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="priority" type="Priority" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="an" type="Tail_no" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ma" type="Ma" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fi" type="Fi" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dsp" type="Dsp" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="gs" type="Gs" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="msg_seq" type="Msg_seq" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="a622" type="A622" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A622">
+		<xs:sequence>
+			<xs:element name="flight_id" type="Flight_id" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tail_no" type="Tail_no" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ReasonCode">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Signature">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Destination">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Smi">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Priority">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="QU"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Ma">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Fi">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Dsp">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Gs">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Msg_seq">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Flight_id">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tail_no">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NextATC">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+			<xs:minLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

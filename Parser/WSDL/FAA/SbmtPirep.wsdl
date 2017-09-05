@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Description: Service for submitting a new PIREP report into the NAS.   -->
+<!--            A full description of the PIREP format is included in       -->
+<!--            section 2.6 "[Ref. 6] Consumer Submits a Report" of the     -->
+<!--            WMSCR SWIM Development Plan.                                -->
+<!--                                                                        -->
+<!-- Response:  On success, the service returns the SubmitPirepResponse.    -->
+<!--            On error, the service returns an ErrorResponse.             -->
+<!--                                                                        -->
+<!-- Processing:  Upon submission of a PIREP, the service provider will     -->
+<!--              perform validation of the data.  The service provider     -->
+<!--              is responsible for the distribution of the PIREP within   -->
+<!--              the NAS.  The distribution may be accomplished using      -->
+<!--              SWIM interfaces and legacy mechanisms.                    -->
+<!--                                                                        -->
+<!-- Contact:  Jane Doe, FAA Support Specialist                             -->
+<!--           jane.doe@faa.gov                                             -->
+<!--           (555) 555-1234                                               -->
+<!--                                                                        -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" name="SubmitPirep_wsdl" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0">
+	<wsdl:types>
+		<xsd:schema xmlns:ns="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0">
+			<xsd:include schemaLocation="wmscr.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Request">
+		<wsdl:part name="payload" element="SubmitPirepRequest"/>
+	</wsdl:message>
+	<wsdl:message name="Response">
+		<wsdl:part name="payload" element="SubmitPirepResponse"/>
+	</wsdl:message>
+	<wsdl:message name="Fault">
+		<wsdl:part name="payload" element="ErrorResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="Pirep">
+		<wsdl:operation name="SubmitPirep">
+			<wsdl:input message="Request"/>
+			<wsdl:output message="Response"/>
+			<wsdl:fault name="anyFault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PirepSOAP11Binding" type="Pirep">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SubmitPirep">
+			<soap:operation soapAction="urn:SubmitPirep" style="document"/>
+			<wsdl:input>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="anyFault">
+				<soap:fault name="anyFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PirepSvc">
+		<wsdl:port name="PirepEndpoint" binding="PirepSOAP11Binding">
+			<soap:address location="http://0.0.0.0:60000/pirep/"/>
+		</wsdl:port>
+		<wsdl:port name="PirepSecEndpoint" binding="PirepSOAP11Binding">
+			<soap:address location="https://0.0.0.0:60001/pirep/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1756 @@
+<?xml version="1.0"?>
+<!-- Change Log -->
+<!-- Version     Date       Author          Change -->
+<!--     0.1    01May2017   ME Johnson      Initial Release -->
+<!--     0.2    17May2017   ME Johnson      Changed latitudeLongitude to latitudelongitude in Placebearingdistance -->
+<!--                                                                     -->
+<xs:schema xmlns="http://harris.com/DO258A" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://harris.com/DO258A" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ATCTwoWayDataLinkCommunications " type="ATCTwoWayDataLinkCommunications "/>
+	<xs:complexType name="ATCTwoWayDataLinkCommunications">
+		<xs:choice>
+			<xs:element name="ATCuplinkmessage" type="ATCuplinkmessage" />
+			<xs:element name="ATCdownlinkmessage" type="ATCdownlinkmessage" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ATCuplinkmessage">
+		<xs:sequence>
+			<xs:element name="aTCmessageheader" type="ATCmessageheader" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aTCuplinkmsgelementid" type="ATCuplinkmsgelementid" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aTCuplinkmsgelementid_seqOf" type="ATCuplinkmsgelementid_seqOf" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATCdownlinkmessage">
+		<xs:sequence>
+			<xs:element name="aTCmessageheader" type="ATCmessageheader" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aTCdownlinkmsgelementid" type="ATCdownlinkmsgelementid" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aTCdownlinkmsgelementid_seqOf" type="ATCdownlinkmsgelementid_seqOf" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATCuplinkmsgelementid_seqOf">
+		<xs:sequence>
+			<xs:element name="aTCuplinkmsgelementid" type="ATCuplinkmsgelementid" minOccurs="1" maxOccurs="4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATCdownlinkmsgelementid_seqOf">
+		<xs:sequence>
+			<xs:element name="aTCdownlinkmsgelementid" type="ATCdownlinkmsgelementid" minOccurs="1" maxOccurs="4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATCuplinkmsgelementid">
+		<xs:choice>
+			<xs:element name="uM0NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM1NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM2NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM3NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM4NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM5NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM6Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM7Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM8Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM9Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM10Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM11Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM12Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM13TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM14PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM15TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM16PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM17TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM18PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM19Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM20Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM21TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM22PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM23Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM24TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM25PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM26AltitudeTime" type="AltitudeTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM27AltitudePosition" type="AltitudePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM28AltitudeTime" type="AltitudeTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM29AltitudePosition" type="AltitudePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM30AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM31AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM32AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM33Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM34Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM35Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM36Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM37Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM38Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM39Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM40Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM41Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM42PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM43PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM44PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM45PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM46PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM47PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM48PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM49PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM50PositionAltitudeAltitude" type="PositionAltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM51PositionTime" type="PositionTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM52PositionTime" type="PositionTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM53PositionTime" type="PositionTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM54PositionTimeTime" type="PositionTimeTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM55PositionSpeed" type="PositionSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM56PositionSpeed" type="PositionSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM57PositionSpeed" type="PositionSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM58PositionTimeAltitude" type="PositionTimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM59PositionTimeAltitude" type="PositionTimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM60PositionTimeAltitude" type="PositionTimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM61PositionAltitudeSpeed" type="PositionAltitudeSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM62TimePositionAltitude" type="TimePositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM63TimePositionAltitudeSpeed" type="TimePositionAltitudeSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM64DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM65PositionDistanceoffsetDirection" type="PositionDistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM66TimeDistanceoffsetDirection" type="TimeDistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM67NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM68Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM69Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM70Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM71Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM72NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM73Predepartureclearance" type="Predepartureclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM74Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM75Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM76TimePosition" type="TimePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM77PositionPosition" type="PositionPosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM78AltitudePosition" type="AltitudePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM79PositionRouteclearance" type="PositionRouteclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM80Routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM81Procedurename" type="Procedurename" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM82DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM83PositionRouteclearance" type="PositionRouteclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM84PositionProcedurename" type="PositionProcedurename" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM85Routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM86PositionRouteclearance" type="PositionRouteclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM87Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM88PositionPosition" type="PositionPosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM89TimePosition" type="TimePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM90AltitudePosition" type="AltitudePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM91Holdclearance" type="Holdclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM92PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM93Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM94DirectionDegrees" type="DirectionDegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM95DirectionDegrees" type="DirectionDegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM96NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM97PositionDegrees" type="PositionDegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM98DirectionDegrees" type="DirectionDegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM99Procedurename" type="Procedurename" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM100TimeSpeed" type="TimeSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM101PositionSpeed" type="PositionSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM102AltitudeSpeed" type="AltitudeSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM103TimeSpeedSpeed" type="TimeSpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM104PositionSpeedSpeed" type="PositionSpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM105AltitudeSpeedSpeed" type="AltitudeSpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM106Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM107NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM108Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM109Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM110SpeedSpeed" type="SpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM111Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM112Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM113Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM114Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM115Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM116NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM117ICAOunitnameFrequency" type="ICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM118PositionICAOunitnameFrequency" type="PositionICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM119TimeICAOunitnameFrequency" type="TimeICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM120ICAOunitnameFrequency" type="ICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM121PositionICAOunitnameFrequency" type="PositionICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM122TimeICAOunitnameFrequency" type="TimeICAOunitnameFrequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM123Beaconcode" type="Beaconcode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM124NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM125NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM126NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM127NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM128Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM129Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM130Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM131NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM132NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM133NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM134NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM135NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM136NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM137NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM138NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM139NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM140NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM141NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM142NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM143NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM144NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM145NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM146NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM147NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM148Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM149AltitudePosition" type="AltitudePosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM150AltitudeTime" type="AltitudeTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM151Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM152DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM153Altimeter" type="Altimeter" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM154NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM155Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM156NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM157Frequency" type="Frequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM158Atiscode" type="Atiscode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM159Errorinformation" type="Errorinformation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM160ICAOfacilitydesignation" type="ICAOfacilitydesignation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM161NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM162NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM163ICAOfacilitydesignationTp4table" type="ICAOfacilitydesignationTp4table" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM164NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM165NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM166NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM167NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM168NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM169Freetext" type="Freetext" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM170Freetext" type="Freetext" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM171Verticalrate" type="Verticalrate" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM172Verticalrate" type="Verticalrate" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM173Verticalrate" type="Verticalrate" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM174Verticalrate" type="Verticalrate" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM175Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM176NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM177NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM178NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM179NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM180AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM181TofromPosition" type="TofromPosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="uM182NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ATCdownlinkmsgelementid">
+		<xs:choice>
+			<xs:element name="dM0NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM1NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM2NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM3NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM4NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM5NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM6Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM7AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM8Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM9Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM10Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM11PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM12PositionAltitude" type="PositionAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM13TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM14TimeAltitude" type="TimeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM15DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM16PositionDistanceoffsetDirection" type="PositionDistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM17TimeDistanceoffsetDirection" type="TimeDistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM18Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM19SpeedSpeed" type="SpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM20NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM21Frequency" type="Frequency" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM22Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM23Procedurename" type="Procedurename" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM24Routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM25NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM26PositionRouteclearance" type="PositionRouteclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM27DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM28Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM29Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM30Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM31Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM32Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM33Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM34Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM35Degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM36Degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM37Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM38Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM39Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM40Routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM41NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM42Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM43Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM44Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM45Position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM46Time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM47Beaconcode" type="Beaconcode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM48Positionreport" type="Positionreport" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM49Speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM50SpeedSpeed" type="SpeedSpeed" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM51NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM52NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM53NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM54Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM55NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM56NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM57RemainingfuelRemainingsouls" type="RemainingfuelRemainingsouls" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM58NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM59PositionRouteclearance" type="PositionRouteclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM60DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM61Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM62Errorinformation" type="Errorinformation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM63NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM64ICAOfacilitydesignation" type="ICAOfacilitydesignation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM65NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM66NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM67Freetext" type="Freetext" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM68Freetext" type="Freetext" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM69NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM70Degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM71Degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM72Altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM73Versionnumber" type="Versionnumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM74NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM75NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM76AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM77AltitudeAltitude" type="AltitudeAltitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM78TimeDistanceTofromPosition" type="TimeDistanceTofromPosition" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM79Atiscode" type="Atiscode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM80DistanceoffsetDirection" type="DistanceoffsetDirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM81NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM82NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM83NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM84NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM85NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM86NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM87NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM88NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM89NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM90NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM91NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM92NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM93NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM94NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM95NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM96NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM97NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM98NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM99NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM100NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM101NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM102NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM103NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM104NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM105NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM106NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM107NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM108NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM109NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM110NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM111NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM112NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM113NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM114NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM115NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM116NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM117NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM118NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM119NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM120NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM121NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM122NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM123NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM124NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM125NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM126NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM127NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dM128NULL" type="NullType" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="NullType">
+		<xs:restriction base="xs:string">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Fixnextplusone">
+		<xs:complexContent>
+			<xs:extension base="Position">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Altitudegnssfeet">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="150000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TimePositionAltitudeSpeed">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Timeseconds">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="59"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Temperature">
+		<xs:choice>
+			<xs:element name="temperaturec" type="Temperaturec" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="temperaturef" type="Temperaturef" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Time">
+		<xs:sequence>
+			<xs:element name="timehours" type="Timehours" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeminutes" type="Timeminutes" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Runway">
+		<xs:sequence>
+			<xs:element name="runwaydirection" type="Runwaydirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="runwayconfiguration" type="Runwayconfiguration" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Minuteslatlon">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="599"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeqnh">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="2500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Airwayintercept">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RTArequiredtimearrivalsequence">
+		<xs:sequence>
+			<xs:element name="rTArequiredtimearrival" type="RTArequiredtimearrival" minOccurs="1" maxOccurs="32"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Beaconcodeoctaldigit">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Longitudedegrees">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="180"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Routeclearance">
+		<xs:sequence>
+			<xs:element name="airportdeparture" type="Airportdeparture" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="airportdestination" type="Airportdestination" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="runwaydeparture" type="Runwaydeparture" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="proceduredeparture" type="Proceduredeparture" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="runwayarrival" type="Runwayarrival" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="procedureapproach" type="Procedureapproach" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="procedurearrival" type="Procedurearrival" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="airwayintercept" type="Airwayintercept" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="routeinformation_seqOf" type="Routeinformation_seqOf" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="routeinformationadditional" type="Routeinformationadditional" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Routeinformation_seqOf">
+		<xs:sequence>
+			<xs:element name="routeinformation" type="Routeinformation" minOccurs="1" maxOccurs="128"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Altimeter">
+		<xs:choice>
+			<xs:element name="altimeterenglish" type="Altimeterenglish" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altimetermetric" type="Altimetermetric" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Routeinformation">
+		<xs:choice>
+			<xs:element name="publishedidentifier" type="Publishedidentifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="placebearingplacebearing" type="Placebearingplacebearing" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="placebearingdistance" type="Placebearingdistance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="airwayidentifier" type="Airwayidentifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="trackdetail" type="Trackdetail" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Speedindicated">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="7"/>
+			<xs:maxInclusive value="38"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeqnhmeters">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="16000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionAltitudeAltitude">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude_seqOf" type="Altitude_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Verticaldirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="up"/>
+			<xs:enumeration value="down"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Placebearingdistance">
+		<xs:sequence>
+			<xs:element name="fixname" type="Fixname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudelongitude" type="LatitudeLongitude" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distance" type="Distance" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Legdistanceenglish">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Windspeedenglish">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Runwayconfiguration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="left"/>
+			<xs:enumeration value="right"/>
+			<xs:enumeration value="center"/>
+			<xs:enumeration value="none"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Latitude">
+		<xs:sequence>
+			<xs:element name="latitudedegrees" type="Latitudedegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="minuteslatlon" type="Minuteslatlon" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="latitudedirection" type="Latitudedirection" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ICAOfacilitydesignationTp4table">
+		<xs:sequence>
+			<xs:element name="iCAOfacilitydesignation" type="ICAOfacilitydesignation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tp4table" type="Tp4table" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Proceduredeparture">
+		<xs:complexContent>
+			<xs:extension base="Procedurename">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Positionreport">
+		<xs:sequence>
+			<xs:element name="positioncurrent" type="Positioncurrent" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeatpositioncurrent" type="Timeatpositioncurrent" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fixnext" type="Fixnext" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timeetaatfixnext" type="Timeetaatfixnext" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fixnextplusone" type="Fixnextplusone" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timeetadestination" type="Timeetadestination" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="remainingfuel" type="Remainingfuel" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="temperature" type="Temperature" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="winds" type="Winds" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="turbulence" type="Turbulence" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="icing" type="Icing" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="speedground" type="Speedground" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="verticalchange" type="Verticalchange" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="trackangle" type="Trackangle" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="trueheading" type="Trueheading" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="distance" type="Distance" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="supplementaryinformation" type="Supplementaryinformation" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reportedwaypointposition" type="Reportedwaypointposition" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reportedwaypointtime" type="Reportedwaypointtime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reportedwaypointaltitude" type="Reportedwaypointaltitude" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Procedurename">
+		<xs:sequence>
+			<xs:element name="proceduretype" type="Proceduretype" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedure" type="Procedure" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="proceduretransition" type="Proceduretransition" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionTimeTime">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="time_seqOf" type="Time_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Proceduretransition">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Versionnumber">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Timestamp">
+		<xs:sequence>
+			<xs:element name="timehours" type="Timehours" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeminutes" type="Timeminutes" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeseconds" type="Timeseconds" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimePositionAltitude">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Procedurearrival">
+		<xs:complexContent>
+			<xs:extension base="Procedurename">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TimeSpeedSpeed">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed_seqOf" type="Speed_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionICAOunitnameFrequency">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iCAOunitname" type="ICAOunitname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequency" type="Frequency" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Speedmachlarge">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="93"/>
+			<xs:maxInclusive value="604"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Msgreferencenumber">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="63"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Procedure">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TimeSpeed">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Verticalratemetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Frequencyhf">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="2850"/>
+			<xs:maxInclusive value="28000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionAltitude">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Airwayidentifier">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Altitude_seqOf">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Reportedwaypointposition">
+		<xs:complexContent>
+			<xs:extension base="Position">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Speedgroundmetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="10"/>
+			<xs:maxInclusive value="265"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Speedindicatedmetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="10"/>
+			<xs:maxInclusive value="137"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ICAOfacilityname">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18"/>
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionSpeedSpeed">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed_seqOf" type="Speed_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="COMNAVequipmentstatus_seqOf">
+		<xs:sequence>
+			<xs:element name="cOMNAVequipmentstatus" type="COMNAVequipmentstatus" minOccurs="1" maxOccurs="16"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RemainingfuelRemainingsouls">
+		<xs:sequence>
+			<xs:element name="remainingfuel" type="Remainingfuel" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="remainingsouls" type="Remainingsouls" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AltitudeSpeed">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Routeinformationadditional">
+		<xs:sequence>
+			<xs:element name="aTWalongtrackwaypointsequence" type="ATWalongtrackwaypointsequence" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reportingpoints" type="Reportingpoints" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="interceptcoursefromsequence" type="Interceptcoursefromsequence" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="holdatwaypointsequence" type="Holdatwaypointsequence" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="waypointspeedaltitudesequence" type="Waypointspeedaltitudesequence" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="rTArequiredtimearrivalsequence" type="RTArequiredtimearrivalsequence" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Trueheading">
+		<xs:complexContent>
+			<xs:extension base="Degrees">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Speedmach">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="61"/>
+			<xs:maxInclusive value="92"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Timeetaatfixnext">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Timeetadestination">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Procedureapproach">
+		<xs:complexContent>
+			<xs:extension base="Procedurename">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RTAtime">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timetolerance" type="Timetolerance" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TofromPosition">
+		<xs:sequence>
+			<xs:element name="tofrom" type="Tofrom" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Holdclearance">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="direction" type="Direction" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="legtype" type="Legtype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimeICAOunitnameFrequency">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iCAOunitname" type="ICAOunitname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequency" type="Frequency" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="COMNAVapproachequipmentavailable">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudegnssmeters">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="50000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Waypointspeedaltitude">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="aTWaltitudesequence" type="ATWaltitudesequence" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionRouteclearance">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Aircrafttype">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Latitudedirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="north"/>
+			<xs:enumeration value="south"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Timetolerance">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="at"/>
+			<xs:enumeration value="atorafter"/>
+			<xs:enumeration value="atorbefore"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Verticalrateenglish">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Reportedwaypointtime">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Freetext">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="256"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Reportingpoints">
+		<xs:sequence>
+			<xs:element name="latlonreportingpoints" type="Latlonreportingpoints" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degreeincrement" type="Degreeincrement" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="COMNAVequipmentstatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="aloranA"/>
+			<xs:enumeration value="cloranC"/>
+			<xs:enumeration value="ddme"/>
+			<xs:enumeration value="edecca"/>
+			<xs:enumeration value="fadf"/>
+			<xs:enumeration value="ggnss"/>
+			<xs:enumeration value="hhfRTF"/>
+			<xs:enumeration value="iinertialNavigation"/>
+			<xs:enumeration value="lils"/>
+			<xs:enumeration value="momega"/>
+			<xs:enumeration value="ovor"/>
+			<xs:enumeration value="pdoppler"/>
+			<xs:enumeration value="rrnavRouteEquipment"/>
+			<xs:enumeration value="ttacan"/>
+			<xs:enumeration value="uuhfRTF"/>
+			<xs:enumeration value="vvhfRTF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Legtime">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Runwayarrival">
+		<xs:complexContent>
+			<xs:extension base="Runway">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Supplementaryinformation">
+		<xs:simpleContent>
+			<xs:extension base="Freetext"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Holdatwaypointspeedhigh">
+		<xs:complexContent>
+			<xs:extension base="Speed">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PositionTime">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Frequency">
+		<xs:choice>
+			<xs:element name="frequencyhf" type="Frequencyhf" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequencyvhf" type="Frequencyvhf" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequencyuhf" type="Frequencyuhf" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequencysatchannel" type="Frequencysatchannel" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Turbulence">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="light"/>
+			<xs:enumeration value="moderate"/>
+			<xs:enumeration value="severe"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeqfe">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="2100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Windspeed">
+		<xs:choice>
+			<xs:element name="windspeedenglish" type="Windspeedenglish" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="windspeedmetric" type="Windspeedmetric" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Atiscode">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Latitudereportingpoints">
+		<xs:sequence>
+			<xs:element name="latitudedirection" type="Latitudedirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudedegrees" type="Latitudedegrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimePosition">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Placebearingplacebearing">
+		<xs:sequence>
+			<xs:element name="placebearing" type="Placebearing" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DistanceoffsetDirection">
+		<xs:sequence>
+			<xs:element name="distanceoffset" type="Distanceoffset" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="direction" type="Direction" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Timeatpositioncurrent">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Verticalchange">
+		<xs:sequence>
+			<xs:element name="verticaldirection" type="Verticaldirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="verticalrate" type="Verticalrate" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Frequencysatchannel">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="Verticalrate">
+		<xs:choice>
+			<xs:element name="verticalrateenglish" type="Verticalrateenglish" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="verticalratemetric" type="Verticalratemetric" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Speed">
+		<xs:choice>
+			<xs:element name="speedindicated" type="Speedindicated" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedindicatedmetric" type="Speedindicatedmetric" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedtrue" type="Speedtrue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedtruemetric" type="Speedtruemetric" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedground" type="Speedground" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedgroundmetric" type="Speedgroundmetric" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedmach" type="Speedmach" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speedmachlarge" type="Speedmachlarge" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="TimeAltitude">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Holdatwaypointspeedlow">
+		<xs:complexContent>
+			<xs:extension base="Speed">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Timehours">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="23"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Aircraftflightidentification">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AltitudeAltitude">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Frequencydeparture">
+		<xs:simpleContent>
+			<xs:extension base="Frequencyvhf"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PositionDistanceoffsetDirection">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distanceoffset" type="Distanceoffset" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="direction" type="Direction" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Speedtrue">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="7"/>
+			<xs:maxInclusive value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionSpeed">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Interceptcoursefrom">
+		<xs:sequence>
+			<xs:element name="interceptcoursefromselection" type="Interceptcoursefromselection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Trackangle">
+		<xs:complexContent>
+			<xs:extension base="Degrees">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Degreeincrement">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="LatitudeLongitude">
+		<xs:sequence>
+			<xs:element name="latitude" type="Latitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="longitude" type="Longitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Altitude">
+		<xs:choice>
+			<xs:element name="altitudeqnh" type="Altitudeqnh" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudeqnhmeters" type="Altitudeqnhmeters" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudeqfe" type="Altitudeqfe" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudeqfemeters" type="Altitudeqfemeters" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudegnssfeet" type="Altitudegnssfeet" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudegnssmeters" type="Altitudegnssmeters" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudeflightlevel" type="Altitudeflightlevel" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitudeflightlevelmetric" type="Altitudeflightlevelmetric" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Time_seqOf">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Tofrom">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="to"/>
+			<xs:enumeration value="from"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ATWaltitude">
+		<xs:sequence>
+			<xs:element name="aTWaltitudetolerance" type="ATWaltitudetolerance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Longitudereportingpoints">
+		<xs:sequence>
+			<xs:element name="longitudedirection" type="Longitudedirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="longitudedegrees" type="Longitudedegrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PDCrevision">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Positioncurrent">
+		<xs:complexContent>
+			<xs:extension base="Position">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Navaid">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Frequencyvhf">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="117000"/>
+			<xs:maxInclusive value="138000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Airport">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeflightlevelmetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="100"/>
+			<xs:maxInclusive value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Frequencyuhf">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="225000"/>
+			<xs:maxInclusive value="399975"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ICAOunitname">
+		<xs:sequence>
+			<xs:element name="iCAOfacilityidentification" type="ICAOfacilityidentification" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iCAOfacilityfunction" type="ICAOfacilityfunction" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimeDistanceoffsetDirection">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distanceoffset" type="Distanceoffset" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="direction" type="Direction" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Timedepartureedct">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Longitudedirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="east"/>
+			<xs:enumeration value="west"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ATWaltitudesequence">
+		<xs:sequence>
+			<xs:element name="aTWaltitude" type="ATWaltitude" minOccurs="1" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Remainingsouls">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Interceptcoursefromselection">
+		<xs:choice>
+			<xs:element name="publishedidentifier" type="Publishedidentifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="placebearingplacebearing" type="Placebearingplacebearing" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="placebearingdistance" type="Placebearingdistance" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Reportedwaypointaltitude">
+		<xs:complexContent>
+			<xs:extension base="Altitude">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DirectionDegrees">
+		<xs:sequence>
+			<xs:element name="direction" type="Direction" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Speedtruemetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="10"/>
+			<xs:maxInclusive value="137"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Legdistancemetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ICAOfacilitydesignation">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Airportdestination">
+		<xs:simpleContent>
+			<xs:extension base="Airport"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Beaconcode">
+		<xs:sequence>
+			<xs:element name="beaconcodeoctaldigit" type="Beaconcodeoctaldigit" minOccurs="4" maxOccurs="4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Winds">
+		<xs:sequence>
+			<xs:element name="winddirection" type="Winddirection" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="windspeed" type="Windspeed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Position">
+		<xs:choice>
+			<xs:element name="fixname" type="Fixname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="navaid" type="Navaid" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="airport" type="Airport" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="placebearingdistance" type="Placebearingdistance" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Airportdeparture">
+		<xs:simpleContent>
+			<xs:extension base="Airport"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Holdatwaypointsequence">
+		<xs:sequence>
+			<xs:element name="holdatwaypoint" type="Holdatwaypoint" minOccurs="1" maxOccurs="8"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Legdistance">
+		<xs:choice>
+			<xs:element name="legdistanceenglish" type="Legdistanceenglish" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="legdistancemetric" type="Legdistancemetric" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Icing">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="trace"/>
+			<xs:enumeration value="light"/>
+			<xs:enumeration value="moderate"/>
+			<xs:enumeration value="severe"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Windspeedmetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="511"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeqfemeters">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="7000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Holdatwaypoint">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="holdatwaypointspeedlow" type="Holdatwaypointspeedlow" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="aTWaltitude" type="ATWaltitude" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="holdatwaypointspeedhigh" type="Holdatwaypointspeedhigh" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="direction" type="Direction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="eFCtime" type="EFCtime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="legtype" type="Legtype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Interceptcoursefromsequence">
+		<xs:sequence>
+			<xs:element name="interceptcoursefrom" type="Interceptcoursefrom" minOccurs="1" maxOccurs="4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Distance">
+		<xs:choice>
+			<xs:element name="distancenm" type="Distancenm" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distancekm" type="Distancekm" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Altimeterenglish">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="2200"/>
+			<xs:maxInclusive value="3200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionPosition">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Runwaydeparture">
+		<xs:complexContent>
+			<xs:extension base="Runway">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AltitudePosition">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATCmessageheader">
+		<xs:sequence>
+			<xs:element name="msgidentificationnumber" type="Msgidentificationnumber" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="msgreferencenumber" type="Msgreferencenumber" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timestamp" type="Timestamp" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Altituderestriction">
+		<xs:complexContent>
+			<xs:extension base="Altitude">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Altimetermetric">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="7500"/>
+			<xs:maxInclusive value="12500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tp4table">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="labelA"/>
+			<xs:enumeration value="labelB"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Publishedidentifier">
+		<xs:sequence>
+			<xs:element name="fixname" type="Fixname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ATWaltitudetolerance">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="at"/>
+			<xs:enumeration value="atorabove"/>
+			<xs:enumeration value="atorbelow"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Distanceoffsetkm">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ICAOunitnameFrequency">
+		<xs:sequence>
+			<xs:element name="iCAOunitname" type="ICAOunitname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="frequency" type="Frequency" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ICAOfacilityidentification">
+		<xs:choice>
+			<xs:element name="iCAOfacilitydesignation" type="ICAOfacilitydesignation" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="iCAOfacilityname" type="ICAOfacilityname" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="PositionProcedurename">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="procedurename" type="Procedurename" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AltitudeTime">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Distancekm">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Predepartureclearance">
+		<xs:sequence>
+			<xs:element name="aircraftflightidentification" type="Aircraftflightidentification" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aircrafttype" type="Aircrafttype" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="aircraftequipmentcode" type="Aircraftequipmentcode" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timedepartureedct" type="Timedepartureedct" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="routeclearance" type="Routeclearance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altituderestriction" type="Altituderestriction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="frequencydeparture" type="Frequencydeparture" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="beaconcode" type="Beaconcode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pDCrevision" type="PDCrevision" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Winddirection">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="360"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ATWdistance">
+		<xs:sequence>
+			<xs:element name="aTWDistancetolerance" type="ATWDistancetolerance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distance" type="Distance" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Speedground">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="7"/>
+			<xs:maxInclusive value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SSRequipmentavailable">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="nnil"/>
+			<xs:enumeration value="atransponderModeA"/>
+			<xs:enumeration value="ctransponderModeAandC"/>
+			<xs:enumeration value="xtransponderModeS"/>
+			<xs:enumeration value="ptransponderModeSPA"/>
+			<xs:enumeration value="itransponderModeSID"/>
+			<xs:enumeration value="stransponderModeSPAID"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Runwaydirection">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ATWDistancetolerance">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="plus"/>
+			<xs:enumeration value="minus"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AltitudeSpeedSpeed">
+		<xs:sequence>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed_seqOf" type="Speed_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Degreesmagnetic">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="360"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Longitude">
+		<xs:sequence>
+			<xs:element name="longitudedegrees" type="Longitudedegrees" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="minuteslatlon" type="Minuteslatlon" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="longitudedirection" type="Longitudedirection" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TimeDistanceTofromPosition">
+		<xs:sequence>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distance" type="Distance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tofrom" type="Tofrom" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EFCtime">
+		<xs:complexContent>
+			<xs:extension base="Time">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PositionTimeAltitude">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="time" type="Time" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ATWalongtrackwaypoint">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="aTWdistance" type="ATWdistance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="aTWaltitudesequence" type="ATWaltitudesequence" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PositionAltitudeSpeed">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="altitude" type="Altitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="speed" type="Speed" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Trackdetail">
+		<xs:sequence>
+			<xs:element name="trackname" type="Trackname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude_seqOf" type="LatitudeLongitude_seqOf" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Timeminutes">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="59"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Fixnext">
+		<xs:complexContent>
+			<xs:extension base="Position">
+				<xs:choice/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="RTAtolerance">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ATWalongtrackwaypointsequence">
+		<xs:sequence>
+			<xs:element name="aTWalongtrackwaypoint" type="ATWalongtrackwaypoint" minOccurs="1" maxOccurs="8"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Degreestrue">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="360"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Direction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="left"/>
+			<xs:enumeration value="right"/>
+			<xs:enumeration value="eitherSide"/>
+			<xs:enumeration value="north"/>
+			<xs:enumeration value="south"/>
+			<xs:enumeration value="east"/>
+			<xs:enumeration value="west"/>
+			<xs:enumeration value="northEast"/>
+			<xs:enumeration value="northWest"/>
+			<xs:enumeration value="southEast"/>
+			<xs:enumeration value="southWest"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Waypointspeedaltitudesequence">
+		<xs:sequence>
+			<xs:element name="waypointspeedaltitude" type="Waypointspeedaltitude" minOccurs="1" maxOccurs="32"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Msgidentificationnumber">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="63"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Proceduretype">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="arrival"/>
+			<xs:enumeration value="approach"/>
+			<xs:enumeration value="departure"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Latitudedegrees">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="90"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Temperaturec">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="-80"/>
+			<xs:maxInclusive value="47"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Placebearing">
+		<xs:sequence>
+			<xs:element name="fixname" type="Fixname" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SpeedSpeed">
+		<xs:sequence>
+			<xs:element name="speed" type="Speed" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Errorinformation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="applicationError"/>
+			<xs:enumeration value="duplicateMsgIdentificationNumber"/>
+			<xs:enumeration value="unrecognizedMsgReferenceNumber"/>
+			<xs:enumeration value="endServiceWithPendingMsgs"/>
+			<xs:enumeration value="endServiceWithNoValidResponse"/>
+			<xs:enumeration value="insufficientMsgStorageCapacity"/>
+			<xs:enumeration value="noAvailableMsgIdentificationNumber"/>
+			<xs:enumeration value="commandedTermination"/>
+			<xs:enumeration value="insufficientData"/>
+			<xs:enumeration value="unexpectedData"/>
+			<xs:enumeration value="invalidData"/>
+			<xs:enumeration value="reservedErrorMsg"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Temperaturef">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="-105"/>
+			<xs:maxInclusive value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Aircraftequipmentcode">
+		<xs:sequence>
+			<xs:element name="cOMNAVapproachequipmentavailable" type="COMNAVapproachequipmentavailable" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="cOMNAVequipmentstatus_seqOf" type="COMNAVequipmentstatus_seqOf" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="sSRequipmentavailable" type="SSRequipmentavailable" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Remainingfuel">
+		<xs:sequence>
+			<xs:element name="timehours" type="Timehours" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeminutes" type="Timeminutes" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Latlonreportingpoints">
+		<xs:choice>
+			<xs:element name="latitudereportingpoints" type="Latitudereportingpoints" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="longitudereportingpoints" type="Longitudereportingpoints" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Distanceoffsetnm">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Altitudeflightlevel">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="30"/>
+			<xs:maxInclusive value="600"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Legtype">
+		<xs:choice>
+			<xs:element name="legdistance" type="Legdistance" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="legtime" type="Legtime" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Distancenm">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PositionDegrees">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degrees" type="Degrees" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Fixname">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ICAOfacilityfunction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="center"/>
+			<xs:enumeration value="approach"/>
+			<xs:enumeration value="tower"/>
+			<xs:enumeration value="final"/>
+			<xs:enumeration value="groundControl"/>
+			<xs:enumeration value="clearanceDelivery"/>
+			<xs:enumeration value="departure"/>
+			<xs:enumeration value="control"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Degrees">
+		<xs:choice>
+			<xs:element name="degreesmagnetic" type="Degreesmagnetic" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degreestrue" type="Degreestrue" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Speed_seqOf">
+		<xs:sequence>
+			<xs:element name="speed" type="Speed" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Distanceoffset">
+		<xs:choice>
+			<xs:element name="distanceoffsetnm" type="Distanceoffsetnm" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="distanceoffsetkm" type="Distanceoffsetkm" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="RTArequiredtimearrival">
+		<xs:sequence>
+			<xs:element name="position" type="Position" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rTAtime" type="RTAtime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rTAtolerance" type="RTAtolerance" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LatitudeLongitude_seqOf">
+		<xs:sequence>
+			<xs:element name="latitudeLongitude" type="LatitudeLongitude" minOccurs="1" maxOccurs="128"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Trackname">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:minLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

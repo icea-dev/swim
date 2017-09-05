@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="FlightPlan"
+    targetNamespace="http://faa.gov/fps"
+	xmlns:fps="http://faa.gov/fps"
+    xmlns:tns="http://faa.gov/fps"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation>This WSDL document describes the FlightPlan service.</wsdl:documentation>
+    <!-- wsdl:types encapsulates schema definitions of communication types; here using xsd -->
+    <wsdl:types>
+        <xsd:import namespace="http://faa.gov/2015/fps/types" schemaLocation="./FlightPlan.xsd"/>
+    </wsdl:types>
+    
+
+    <wsdl:message name="FileFlightPlanRequest">
+	    <wsdl:documentation>Used by a service consumer to submit (file) a flight plan.</wsdl:documentation>
+        <wsdl:part name="fp" element="fps:FlightPlan"/>
+    </wsdl:message>
+
+    <wsdl:message name="FileFlightPlanResponse">
+	    <wsdl:documentation>Used to inform a service consumer that flight plan information has been accepted and returns the ID that has been assigned to the flight plan.</wsdl:documentation>
+        <wsdl:part name="fp" element="fps:FlightPlanId"/>
+    </wsdl:message>
+	
+    <wsdl:message name="CancelFlightPlanRequest">
+	        <wsdl:documentation>Used by a service consumer to cancel a previously filed flight plan.</wsdl:documentation>
+        <wsdl:part name="id" element="fps:FlightPlanId"/>
+    </wsdl:message>
+
+    <wsdl:message name="CancelFlightPlanResponse">
+	        <wsdl:documentation>Used to inform a service consumer that the flight plan has been cancelled.</wsdl:documentation>
+        <wsdl:part name="id" element="fps:FlightPlanId"/>
+    </wsdl:message>
+
+    <wsdl:message name="UpdateDestinationAerodromeRequest">
+    <wsdl:documentation>Used by a service consumer to change a destination aerodrome.</wsdl:documentation>	
+        <wsdl:part name="id" element="fps:FlightPlanId"/>
+		<wsdl:part name="destination" element="fpsDestinationAerodrome"/>
+    </wsdl:message>
+
+    <wsdl:message name="UpdateDestinationAerodromeResponse">
+	    <wsdl:documentation>Used to inform a service consumer that the original destination aerodrome has been changed.</wsdl:documentation>
+        <wsdl:part name="fp" element="fps:FlightPlanId"/>
+    </wsdl:message>
+	        
+    <wsdl:portType name="FlightPlanPortType">
+        <wsdl:documentation>FlightPlanPortType interface provides service consumer with the group of operation to file and subsequently to modify or cancel a flight plan. </wsdl:documentation>
+        <wsdl:operation name="FileFlightPlan">
+		<wsdl:documentation>The FileFlightPlan operation allows the creation of persistent information defining an intended flight (flight plan).</wsdl:documentation>
+            <wsdl:input message="tns:FileFlightPlanRequest"/>
+            <wsdl:output message="tns:FileFlightPlanResponse"/>
+			<wsdl:fault  message="tns:invalidDataFault"/>
+        </wsdl:operation>
+		
+        <wsdl:operation name="CancelFlightPlan">
+		<wsdl:documentation>The CancelFlightPlan operation allows canceling a previously filed flight plan.</wsdl:documentation>
+            <wsdl:input message="tns:CancelFlightPlanRequest"/>
+            <wsdl:output message="tns:CancelFlightPlanResponse"/>
+			<wsdl:fault  message="tns:invalidDataFault"/>
+        </wsdl:operation>
+		
+		<wsdl:operation name="UpdateDestinationAerodrome">
+		<wsdl:documentation>The UpdateDestinationAerodrome operation allows updating the destination aerodrome information within a filed flight plan.</wsdl:documentation>
+            <wsdl:input message="tns:UpdateDestinationAerodromeRequest"/>
+            <wsdl:output message="tns:UpdateDestinationAerodromeRequest"/>
+			<wsdl:fault  message="tns:invalidDataFault"/>
+        </wsdl:operation>
+		</wsdl:portType>
+    
+
+    <wsdl:binding name="SOAPoverHTTPBinding"
+        type="tns:FlightPlanPortType">
+        <wsdl:documentation>SOAPoverHTTPBinding binds FlightPlanPortType by using SOAP over HTTP protocol stack.</wsdl:documentation>
+        <!-- leverage off soap:binding document style @@@(no wsdl:foo pointing at the soap binding) -->
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>        
+    </wsdl:binding>
+    
+    <!-- wsdl:service names a new service "FlightPlanService" -->
+    <wsdl:service name="FlightPlanService">
+    <wsdl:documentation>FlightPlanService is the collection of End Points for FPS.</wsdl:documentation>            
+            <!-- connect it to the binding "SOAPoverHTTPBinding" above -->
+            <wsdl:port name="HTTPExternalFlightPlanEndPoint"
+                binding="tns:SOAPoverHTTPBinding">
+              <wsdl:documentation>End Point for filing Flight Plan.</wsdl:documentation>  
+              <soap:address location="http://enroute.faa.gov/services/flight-plan"/>
+            </wsdl:port>
+    </wsdl:service>
+    
+    </wsdl:definitions>

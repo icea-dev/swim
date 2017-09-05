@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               jaxb:version="2.1">
+    <jaxb:bindings schemaLocation="/home/filipe/Documents/Projetos/ontology_swim/Parser/WSDL/EUR/19.5.0_2/aixm/ISO_19136_Schemas/datums.xsd">
+        <jaxb:schemaBindings>
+            <jaxb:package name="br.com.icea.xsd.datums"/>
+		 <jaxb:class ="SecondDefiningParameter"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+</jaxb:bindings>

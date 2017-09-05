@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Active" type="xs:integer"/>
+  <xs:element name="DateTime" type="xs:dateTime"/>
+  <xs:element name="RType" type="xs:integer"/>
+  <xs:element name="StartDateTime" type="xs:dateTime"/>
+  <xs:element name="StopDateTime" type="xs:dateTime"/>
+  <xs:element name="USI" type="xs:string"/>
+  <xs:element name="ID">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+        <xs:maxLength value="20"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Status">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Jeopardy"/>
+        <xs:enumeration value="Operational"/>
+        <xs:enumeration value="Outage"/>
+        <xs:enumeration value="Maintenance"/>
+        <xs:enumeration value="Degraded"/>
+        <xs:enumeration value="atBNOCC"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:group name="StartStop">
+    <xs:sequence>
+      <xs:element ref="StartDateTime" minOccurs="1" maxOccurs="1"/>
+      <xs:element ref="StopDateTime" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="Msg">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+        <xs:maxLength value="500"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Location">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+        <xs:maxLength value="500"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="SVData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="USI" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="Status" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SOMSData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Status" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SDSData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Status" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GSData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Location" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="Status" minOccurs="1"  maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Event">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Msg" minOccurs="1" maxOccurs="1"/>
+        <xs:choice>
+          <xs:element ref="GSData"/>
+          <xs:element ref="SVData"/>
+          <xs:element ref="SDSData"/>
+          <xs:element ref="SOMSData"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LocationActive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Location" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="Active" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActiveLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="StartStop" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="LocationActive" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RMAFail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:group ref="StartStop" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="USI" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DCNSMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ID" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="RType" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="DateTime" minOccurs="1" maxOccurs="1"/>
+        <xs:choice>
+          <xs:element ref="Event"/>
+          <xs:element ref="RMAFail"/>
+          <xs:element ref="ActiveLink"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

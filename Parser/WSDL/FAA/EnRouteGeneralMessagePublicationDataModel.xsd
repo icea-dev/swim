@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 2 (http://www.altova.com) by Patricio O Colon (DOT) -->
+<xs:schema xmlns:fdpsdata="us:gov:dot:faa:atm:enroute:entities:flightdata" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="us:gov:dot:faa:atm:enroute:entities:flightdata" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+					*******************************************************************
+					This schema contains the definitions of the data
+					 types for the subscription request, response and fault messages 
+					 used in Flight Data Publication Services
+					*******************************************************************
+				</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="FdpsGeneralMessagePublicationSubscriptionRequestType">
+		<xs:sequence>
+			<xs:element name="FdpsRequestDestinationIdentifier" type="xs:string"/>
+			<xs:element name="FdpsSourcefacility" type="xs:string"/>
+			<xs:element name="FdpsMessageType" type="xs:string"/>
+			<xs:element name="FdpsReceivedTimeStart" type="xs:string"/>
+			<xs:element name="FdpsReceivedTimeEnd" type="xs:string"/>
+			<xs:element name="FdpsSpecialFilters" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FdpsGeneralMessagePublicationSubscriptionResponseType">
+		<xs:sequence>
+			<xs:element name="FdpsSubscriptionId" type="xs:string"/>
+			<xs:element name="FdpsEndpointUrl" type="xs:string"/>
+			<xs:element name="FdpsResponseDestinationIdentifier" type="xs:string"/>
+			<xs:element name="FdpsResponsePayload" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FdpsGeneralMessagePublicationSubscriptionFaultType">
+		<xs:sequence>
+			<xs:element name="FdpsGeneralMessagePublicationFault" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FdpsGeneralMessagePublicationSubscriptionRequestElement" type="fdpsdata:FdpsGeneralMessagePublicationSubscriptionRequestType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsGeneralMessagePublicationSubscriptionRequest defines the Requests for the EnRoute  General Message Publication
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FdpsGeneralMessagePublicationSubscriptionResponseElement" type="fdpsdata:FdpsGeneralMessagePublicationSubscriptionResponseType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsGeneralMessagePublicationSubscriptionResponseElement defines the Response for the EnRouteGeneralMessagePublication
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FdpsGeneralMessagePublicationSubscriptionFaultElement" type="fdpsdata:FdpsGeneralMessagePublicationSubscriptionFaultType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsGeneralMessagePublicationSubscriptionFaultElement defines the faults for the EnRouteGeneralMessagePublication  
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

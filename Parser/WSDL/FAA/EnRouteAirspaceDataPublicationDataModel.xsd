@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 2 (http://www.altova.com) by Patricio O Colon (DOT) -->
+<xs:schema xmlns:fdpsdata="us:gov:dot:faa:atm:enroute:entities:flightdata" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="us:gov:dot:faa:atm:enroute:entities:flightdata" elementFormDefault="qualified" attributeFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+					*******************************************************************
+					This schema contains the definitions of the data
+					types for the subscription request, response 
+					and fault messages used in Flight Data Publication Services
+					*******************************************************************
+				c</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="FdpsAirspaceDataSubscriptionRequestType">
+		<xs:sequence>
+			<xs:element name="FdpsRequestDestinationIdentifier" type="xs:string"/>
+			<xs:element name="FdpsDataState" type="xs:string"/>
+			<xs:element name="FdpsSourcefacility" type="xs:string"/>
+			<xs:element name="FdpsReportingStation" type="xs:string"/>
+			<xs:element name="FdpsMessageType" type="xs:string"/>
+			<xs:element name="FdpsAirspaceDataType" type="xs:string"/>
+			<xs:element name="FdpsReceivedTimeStart" type="xs:string"/>
+			<xs:element name="FdpsReceivedTimeEnd" type="xs:string"/>
+			<xs:element name="FdpsSpecialFilters" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FdpsAirspaceDataSubscriptionResponseType">
+		<xs:sequence>
+			<xs:element name="FdpsSubscriptionId" type="xs:string"/>
+			<xs:element name="FdpsEndpointUrl" type="xs:string"/>
+			<xs:element name="FdpsResponseDestinationIdentifier" type="xs:string"/>
+			<xs:element name="FdpsResponsePayload" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FdpsAirspaceDataSubscriptionFaultType">
+		<xs:sequence>
+			<xs:element name="FdpsAirspaceDataFault" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FdpsAirspaceDataSubscriptionRequestElement" type="fdpsdata:FdpsAirspaceDataSubscriptionRequestType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsSubscriptionRequest defines the Requests for the EnRoute AirspaceData Publication 	 
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FdpsAirspaceDataSubscriptionResponseElement" type="fdpsdata:FdpsAirspaceDataSubscriptionResponseType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsAirspaceDataSubscriptionResponseElement defines the Response for the EnRoute   AirspaceData  Publication 	 
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FdpsAirspaceDataSubscriptionFaultElement" type="fdpsdata:FdpsAirspaceDataSubscriptionFaultType">
+		<xs:annotation>
+			<xs:documentation>
+					*******************************************************************
+					FdpsAirspaceDataSubscriptionFaultElement defines the faults for the EnRoute AirspaceDataPublication 
+					*******************************************************************
+				</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

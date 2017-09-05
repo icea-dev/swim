@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fdpsoperationaldatapub="us:gov:dot:faa:atm:enroute:services:operationaldatapub" xmlns:fdpsdata="us:gov:dot:faa:atm:enroute:entities:flightdata" name="enroute-operational-data-publication-wsdl" targetNamespace="us:gov:dot:faa:atm:enroute:services:operationaldatapub">
+	<wsdl:documentation>EnRoute Operational Data Publication </wsdl:documentation>
+	<wsdl:types>
+		<xs:schema>
+			<xs:annotation>
+				<xs:documentation>
+					*******************************************************************
+					EnRouteOperationalDataPublicationDataModel.xsd contains the definitions of the data
+					types used in this wsdl
+					*******************************************************************
+				</xs:documentation>
+			</xs:annotation>
+			<xs:import namespace="us:gov:dot:faa:atm:enroute:entities:flightdata" schemaLocation="EnRouteOperationalDataPublicationDataModel.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="FdpsSubscriptionRequestMessage">
+		<wsdl:part name="FdpsSubscriptionRequest" element="fdpsdata:FdpsOperationalDataSubscriptionRequestElement">
+	    </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="FdpsSubscriptionResponseMessage">
+		<wsdl:part name="FdpsSubscriptionResponse" element="fdpsdata:FdpsOperationalDataSubscriptionResponseElement">
+	    </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="FdpsSubscriptionFaultMessage">
+		<wsdl:part name="fdpssubscriptionfaultpayload" element="fdpsdata:FdpsOperationalDataSubscriptionFaultElement">
+	    </wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="FdpsOperationalSubscriptionPortType">
+		<wsdl:operation name="GetFdpsSubscription">
+			<wsdl:input message="fdpsoperationaldatapub:FdpsSubscriptionRequestMessage"/>
+			<wsdl:output message="fdpsoperationaldatapub:FdpsSubscriptionResponseMessage"/>
+			<wsdl:fault name="FdpsSubscriptionFault" message="fdpsoperationaldatapub:FdpsSubscriptionFaultMessage"> </wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="FdpsOperationalSubscriptionSOAPBinding" type="fdpsoperationaldatapub:FdpsOperationalSubscriptionPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetFdpsSubscription">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FdpsSubscriptionFault">
+				<soap:fault name="FdpsSubscriptionFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EnrouteOperationalDataPublication">
+		<wsdl:port name="EnrouteOperationalDataPublicationSoapOverHttp" binding="fdpsoperationaldatapub:FdpsOperationalSubscriptionSOAPBinding">
+			<soap:address location="https://11.22.11.22:9000/EnrouteOperationalDataPublication/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xdb="http://xmlns.oracle.com/xdb">
+  <xs:element name="AOVMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageID" type="xs:integer"></xs:element>
+        <xs:element name="TransactionType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="HEARTBEAT"/>
+              <xs:enumeration value="HOLDER"/>
+              <xs:enumeration value="RATING"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Email" type="xs:string"></xs:element>
+        <xs:element name="Rating" type="xs:string"></xs:element>
+        <xs:element name="ExpirationDate" nillable="true">
+          <xs:simpleType>
+            <xs:union>
+              <xs:simpleType>
+                <xs:restriction base="xs:dateTime"/>
+              </xs:simpleType>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:whiteSpace value="collapse"/>
+                  <xs:length value="0"/>
+                </xs:restriction>
+              </xs:simpleType>        
+            </xs:union>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="RatingStatus" type="xs:string"></xs:element>
+        <xs:element name="HolderStatus" type="xs:string"></xs:element>
+        <xs:element name="FacilityCode" type="xs:string"></xs:element>
+        <xs:element name="ModifiedDateTime" type="xs:dateTime"></xs:element>
+        <xs:element name="MessageTS" type="xs:dateTime"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

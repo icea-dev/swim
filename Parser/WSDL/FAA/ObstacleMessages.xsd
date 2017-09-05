@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:obs-msg="urn:us:gov:dot:faa:aim:obstacle:message" targetNamespace="urn:us:gov:dot:faa:aim:obstacle:message" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="WorkflowNotification" type="obs-msg:WorkflowNotificationType"/>
+	
+	<xs:complexType name="WorkflowNotificationType">
+		<xs:sequence>
+			<xs:element name="ObstacleID" type="obs-msg:ObstacleIDType"/>
+			<xs:element name="WorkflowStatus" type="xs:string" minOccurs="0"/>   
+			<xs:element name="WorkflowStatusReason" type="xs:string"/> <!-- VERIFY, DUPLICATE etc  -->
+			<xs:element name="NACONumber" type="xs:string"/>
+			<xs:element name="ObstacleSource" type="xs:string"  minOccurs="0"/>
+			<xs:element name="CategoryType" type="xs:string"  minOccurs="0"/>
+			<xs:element name="Property" type="obs-msg:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PropertyType">
+		<xs:sequence>
+			<xs:element name="ValueReference">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="action" type="xs:string" default="replace"/>  <!-- replace, insert, remove --> 
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Value" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="ResolvePossibleDuplicateRequest" type="obs-msg:ResolvePossibleDuplicateRequestType"/>
+	<xs:complexType name="ResolvePossibleDuplicateRequestType">
+		<xs:sequence>
+			<xs:element name="ResolveObstacle" type="obs-msg:ResolvePossibleDuplicateObstacleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResolvePossibleDuplicateObstacleType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="MatchSetUUID" type="obs-msg:UUIDType"/>
+				<xs:element name="IncomingObstacle" type="obs-msg:ObstacleIDType"/>
+			</xs:choice>
+			<xs:element name="ResolutionStatus" type="obs-msg:ResolutionStatusType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResolvePossibleDuplicateResponse" type="obs-msg:ResolvePossibleDuplicateResponseType"/>
+	<xs:complexType name="ResolvePossibleDuplicateResponseType">
+		<xs:sequence>
+			<xs:element name="ResolvedPossibeDuplicateObstacle" type="obs-msg:ResolvedPossibleDuplicateObstacleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResolvedPossibleDuplicateObstacleType">
+		<xs:all>
+			<xs:element name="Status" type="obs-msg:ResponseStatusType" minOccurs="1"/>
+			<xs:element name="IncomingObstacle" type="obs-msg:ObstacleIDType"/>
+			<xs:element name="MatchSetUUID" type="obs-msg:UUIDType"/>
+			<xs:element name="Message" type="xs:string" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:element name="GetPossibleDuplicateRequest" type="obs-msg:GetPossibleDuplicateRequestType"/>
+	<xs:complexType name="GetPossibleDuplicateRequestType">
+		<xs:sequence>
+			<xs:element name="IncomingObstacle" type="obs-msg:ObstacleIDType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="IncludeResolved" type="obs-msg:YesOrNoType" default="Y"/>
+	</xs:complexType>
+	<xs:element name="GetPossibleDuplicateResponse" type="obs-msg:GetPossibleDuplicateResponseType"/>
+	<xs:complexType name="GetPossibleDuplicateResponseType">
+		<xs:sequence>
+			<xs:element name="PossibleDuplicate" type="obs-msg:PossibleDuplicateObstacleType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PossibleDuplicateObstacleType">
+		<xs:all>
+			<xs:element name="IncomingObstacle" type="obs-msg:ObstacleIDType"/>
+			<xs:element name="ExistingObstacle" type="obs-msg:ObstacleIDType"/>
+			<xs:element name="MatchSetUUID" type="obs-msg:UUIDType"/>
+			<xs:element name="ResolutionStatus" type="obs-msg:ResolutionStatusType" minOccurs="0"/>
+			<xs:element name="AuditInfo" minOccurs="0">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="Created" minOccurs="0">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="User" type="xs:string"/>
+									<xs:element name="Date" type="xs:dateTime"/>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="LastUpdate" minOccurs="0">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="User" type="xs:string"/>
+									<xs:element name="Date" type="xs:dateTime"/>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:element name="ValidateObstacleRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="ValidatedDate" type="xs:dateTime"/>
+				<xs:element name="Activate" type="obs-msg:YesOrNoType" default="N" minOccurs="0"/>
+				<xs:element name="ObstacleID" type="obs-msg:ObstacleIDType"/>
+				<xs:element name="PartID" type="obs-msg:UUIDType" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ValidateObstacleResponse">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Result" type="obs-msg:ResponseStatusType" minOccurs="1"/>
+				<xs:element name="Message" type="xs:string" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DismantleObstacleRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="DismantleDate" type="xs:dateTime" minOccurs="0"/>
+				<xs:element name="ObstacleID" type="obs-msg:ObstacleIDType"/>
+				<xs:element name="PartID" type="obs-msg:UUIDType" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DismantleObstacleResponse" type="obs-msg:TransactionResponseType"/>
+
+	<xs:complexType name="TransactionResponseType">
+			<xs:all>
+				<xs:element name="Result" type="obs-msg:ResponseStatusType" minOccurs="1"/>
+				<xs:element name="Message" type="xs:string" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	
+	<xs:element name="ObstacleTransitionRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Status" type="obs-msg:StatusType"/>
+				<xs:element name="ObstacleID" type="obs-msg:ObstacleIDType"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ObstacleTransitionResponse">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Result" type="obs-msg:ResponseStatusType" minOccurs="1"/>
+				<xs:element name="Message" type="xs:string" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="ObstacleIDType">
+		<xs:all>
+			<xs:element name="UUID" type="obs-msg:UUIDType"/>
+			<xs:element name="Revision" type="xs:nonNegativeInteger"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:element name="UUID" type="obs-msg:UUIDType"/>
+	<xs:simpleType name="UUIDType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([A-Fa-f0-9]{32})|([A-Fa-f0-9]{8}[-]{1}[A-Fa-f0-9]{4}[-]{1}[A-Fa-f0-9]{4}[-]{1}[A-Fa-f0-9]{4}[-]{1}[A-Fa-z0-9]{12})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="YesOrNoType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResponseStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SUCCESS"/>
+			<xs:enumeration value="FAILURE"/>
+			<xs:enumeration value="WARNING"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResolutionStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NO_DUPL"/>
+			<xs:enumeration value="CERTN_DUPL"/>
+			<xs:enumeration value="POSS_DUPL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Production status code for staging of a feature -->
+	<xs:simpleType name="StatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACTIVE"/>
+			<xs:enumeration value="PENDING"/>
+			<xs:enumeration value="WORKING"/>
+			<xs:enumeration value="HISTORY"/>
+			<xs:enumeration value="CANCEL"/>
+			<xs:enumeration value="DISAPPROVE"/>
+			<xs:enumeration value="RESTRICT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Staging  status code for workflow  of a feature -->
+	<xs:simpleType name="WorkflowModelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PUBLICATION"/>
+			<xs:enumeration value="PROPOSED"/>
+			<xs:enumeration value="FUTURE"/>
+			<xs:enumeration value="TEST"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -92,15 +92,28 @@ dataStakeholderClasses = []
 dataCategoryClasses = []
 actCategoryClasses = []
 
+regionClassesTest = []
+flightPhaseClassesTest = []
+dataStakeholderClassesTest = []
+dataCategoryClassesTest = []
+actCategoryClassesTest = []
+
+
 for i in range(0, len(parsed_json.keys())):
 
     if len(parsed_json[str(i)]["atm"]["regions"]) > 0:
         for x in range(0, len(parsed_json[str(i)]["atm"]["regions"])):
             region = parsed_json[str(i)]["atm"]["regions"][x].replace(" ", "")
 
+            # if region not in regionClassesTest:
+            #     print(region)
+            #     regionClassesTest.append(region)
+
             if region not in regionClasses:
                 newClass = types.new_class(region, (Regions,), kwds={"ontology": onto})
                 regionClasses.append(newClass)
+            else :
+                print(region)
 
     if len(parsed_json[str(i)]["atm"]["flightPhases"]) > 0:
         for x in range(0, len(parsed_json[str(i)]["atm"]["flightPhases"])):
@@ -110,6 +123,10 @@ for i in range(0, len(parsed_json.keys())):
                 newClass = types.new_class(flightPhase, (ATM_Flight_Phases,), kwds={"ontology": onto})
                 flightPhaseClasses.append(newClass)
 
+            # if flightPhase not in flightPhaseClassesTest:
+            #     print(flightPhase)
+            #     flightPhaseClassesTest.append(flightPhase)
+
     if len(parsed_json[str(i)]["atm"]["dataStakeholder"]) > 0:
         for x in range(0, len(parsed_json[str(i)]["atm"]["dataStakeholder"])):
             dataStakeHolder = parsed_json[str(i)]["atm"]["dataStakeholder"][x].replace(" ", "")
@@ -117,6 +134,10 @@ for i in range(0, len(parsed_json.keys())):
             if dataStakeHolder not in dataStakeholderClasses:
                 newClass = types.new_class(dataStakeHolder, (ATM_StakeHolders,), kwds={"ontology": onto})
                 dataStakeholderClasses.append(newClass)
+
+            # if dataStakeHolder not in dataStakeholderClassesTest:
+            #     print(dataStakeHolder)
+            #     dataStakeholderClassesTest.append(dataStakeHolder)
 
     if len(parsed_json[str(i)]["atm"]["dataCategory"]) > 0:
         for x in range(0, len(parsed_json[str(i)]["atm"]["dataCategory"])):
@@ -126,6 +147,10 @@ for i in range(0, len(parsed_json.keys())):
                 newClass = types.new_class(dataCategory, (ATM_Data_Category,), kwds={"ontology": onto})
                 dataCategoryClasses.append(newClass)
 
+            # if dataCategory not in dataCategoryClassesTest:
+            #     print(dataCategory)
+            #     dataCategoryClassesTest.append(dataCategory)
+
     if len(parsed_json[str(i)]["atm"]["actCategory"]) > 0:
         for x in range(0, len(parsed_json[str(i)]["atm"]["actCategory"])):
             actCategory = parsed_json[str(i)]["atm"]["actCategory"][x].replace(" ", "")
@@ -133,6 +158,10 @@ for i in range(0, len(parsed_json.keys())):
             if actCategory not in actCategoryClasses:
                 newClass = types.new_class(actCategory, (ATM_Activity_Category,), kwds={"ontology": onto})
                 actCategoryClasses.append(newClass)
+
+            if actCategory not in actCategoryClassesTest:
+                print(actCategory)
+                actCategoryClassesTest.append(actCategory)
 
 # Creating Instances
 for i in range(0, len(parsed_json.keys())):

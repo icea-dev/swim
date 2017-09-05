@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Description: Service for submitting a new AltSet report into the NAS.   -->
+<!--  -->
+<wsdl:definitions  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" name="altset_wsdl" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0">
+	<wsdl:types>
+		<xsd:schema xmlns:ns="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:us:gov:dot:faa:weather:iesp:nwrx:1:0">
+			<xsd:include schemaLocation="wmscr.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Request">
+		<wsdl:part name="payload" element="SubmitAltSetRequest"/>
+	</wsdl:message>
+	<wsdl:message name="Response">
+		<wsdl:part name="payload" element="SubmitAltSetResponse"/>
+	</wsdl:message>
+	<wsdl:message name="Fault">
+		<wsdl:part name="payload" element="ErrorResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="AltSet">
+		<wsdl:operation name="SubmitAltSet">
+			<wsdl:input message="Request"/>
+			<wsdl:output message="Response"/>
+			<wsdl:fault name="anyFault" message="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="AltSetSOAP11Binding" type="AltSet">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SubmitAltSet">
+			<soap:operation soapAction="urn:SubmitAltSet" style="document"/>
+			<wsdl:input>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="payload" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="anyFault">
+				<soap:fault name="anyFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AltSetSvc">
+		<wsdl:port name="AltSetEndpoint" binding="AltSetSOAP11Binding">
+			<soap:address location="http://0.0.0.0:60000/altset/"/>
+		</wsdl:port>
+		<wsdl:port name="AltSetSecEndpoint" binding="AltSetSOAP11Binding">
+			<soap:address location="https://0.0.0.0:60001/altset/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
